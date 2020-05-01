@@ -25,8 +25,7 @@ class AdminController extends Controller
      */
     
     public function index() {
-        $users = DB::table('users')->get();
-        return view('admin/admin', ['users' => $users]);
+        return view('admin/admin');
     }
 
 }

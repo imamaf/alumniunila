@@ -14,11 +14,9 @@
                 <img src="lte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
            
-            @foreach($users as $user)
             <div class="info">
-                <a href="#" class="d-block">{{$user->name}} </a>
+                <a href="#" class="d-block">{{ Auth::user()->name }} </a>
             </div>
-            @endforeach
         </div>
 
         <!-- Sidebar Menu -->
