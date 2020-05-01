@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class AdminController extends Controller
+class HomeController extends Controller
 {
-    
     /**
      * Create a new controller instance.
      *
@@ -23,10 +21,8 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    
-    public function index() {
-        $users = DB::table('users')->get();
-        return view('admin/admin', ['users' => $users]);
+    public function index()
+    {
+        return view('home');
     }
-
 }
