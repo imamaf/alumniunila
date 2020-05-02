@@ -56,72 +56,77 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> nama}}">
+                    <input type="text" readonly class="form-control" id="nama">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Lahir</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> tempat_lahir}}">
+                    <input type="text" readonly class="form-control" id="tempat_Lahir">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tangggal Lahir</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> tgl_lahir}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> alamat}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">No Hp</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> no_hp}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Jurusan</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> jurusan_prodi}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Masuk</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> th_masuk}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Lulus</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> th_lulus}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword"  value="{{$users_attribut -> status}}"> 
+                    <input type="text" readonly class="form-control" id="inputPassword"> 
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Bekerja</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> tempat_bekerja}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Waktu Lulus Kerja</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut -> waktu_lulus_bekerja}}">
+                    <input type="text" readonly class="form-control" id="inputPassword">
                     </div>
                 </div>
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                  <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
+                  <div class="invalid-feedback">Example invalid custom file feedback</div>
+                </div>
+
+                <button type="submit" class="btn btn-primary my-1">Submit</button>
             </form>
-            </div><!-- /.container-fluid -->
-        </div>
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->

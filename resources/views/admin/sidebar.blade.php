@@ -40,7 +40,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/alumni" class="nav-link">
                             <i class="fa fa-clone" aria-hidden="true"></i>
                                 <p>Alumni</p>
                             </a>

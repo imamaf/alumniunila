@@ -4,9 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Users_Attribut;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class UserAttributsController extends Controller
 {
+        /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
     /**
      * Display a listing of the resource.
      *
@@ -23,8 +39,16 @@ class UserAttributsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {   $id = auth()->user()->id;
+        $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
+        // dd($users_attribut);
+        if($users_attribut != null) {
+            return 'Datanya ada';
+        } else {
+
+            return view('admin/crud/addAlumni' );
+        }
+        
     }
 
     /**

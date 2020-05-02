@@ -33,8 +33,11 @@ class AdminController extends Controller
     public function detailUser() {
         $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
-        dump($users_attribut);
-        return view('admin/detailUser' , ['users_attribut' => $users_attribut]);
+        if($users_attribut != null) {
+            return view('admin/detailUser' , ['users_attribut' => $users_attribut]);
+        } else {
+            return 'Data Belum Tersedia';
+        }
     }
 
 }
