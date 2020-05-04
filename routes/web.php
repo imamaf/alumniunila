@@ -32,3 +32,9 @@ Route::get('/admin', 'AdminController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/detailUser', 'AdminController@detailUser');
+//show Detail
+Route::get('/detail/{id}', 'UserAttributsController@show');
+//CreateDataAlumni
+Route::get('/alumni', 'UserAttributsController@create');
