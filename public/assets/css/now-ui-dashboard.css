@@ -560,7 +560,7 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 }
 
 .btn-primary {
-  background-color: #f96332;
+  background-color: #183061;
   color: #FFFFFF;
 }
 
@@ -575,10 +575,10 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
 .show>.btn-primary.dropdown-toggle,
 .show>.btn-primary.dropdown-toggle:focus,
 .show>.btn-primary.dropdown-toggle:hover {
-  background-color: #fa7a50;
+  background-color: #1e4288;
   color: #FFFFFF;
   box-shadow: none;
-  border-color: #fa7a50;
+  border-color: #1e4288;
 }
 
 .btn-primary:not([data-action]):not([class*="btn-outline-"]):hover {
@@ -1324,7 +1324,7 @@ fieldset[disabled] .btn-link.active {
 .form-control {
   background-color: transparent;
   border: 1px solid #E3E3E3;
-  border-radius: 30px;
+  border-radius: 5px;
   color: #2c2c2c;
   line-height: normal;
   height: auto;
@@ -1956,7 +1956,7 @@ p.description {
 .text-primary,
 a.text-primary:focus,
 a.text-primary:hover {
-  color: #f96332 !important;
+  color: #3a3a3a !important;
 }
 
 .text-info,
@@ -3667,8 +3667,8 @@ Created using IcoMoon - icomoon.io
 
 .table>thead>tr>th {
   border-bottom-width: 1px;
-  font-size: 1.45em;
-  font-weight: 300;
+  font-size: 14px;
+  /* font-weight: 300; */
   border: 0;
 }
 
@@ -5989,3 +5989,45 @@ Created using IcoMoon - icomoon.io
 }
 
 /*# sourceMappingURL=dashboard-free.css.map */
+
+.user-panel {
+  position: relative;
+}
+
+.user-panel,
+.user-panel .info {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-grid;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.user-panel .image {
+  /* display: inline-block;
+  padding-left: 0.8rem; */
+  text-align: center;
+}
+
+.user-panel img {
+  height: auto;
+  width: 70px;
+  box-shadow: 0 5px 20px 0px rgba(255, 255, 255, 0.3);
+}
+
+.user-panel .info a{
+  /* display: inline-block;
+  padding: 5px 5px 5px 10px; */
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.user-panel .status,
+.user-panel .dropdown-menu {
+  font-size: 0.875rem;
+}
+
+.img-circle {
+  border-radius: 50%;
+}

@@ -27,7 +27,17 @@
                     Universitas Lampung
                 </a>
             </div>
+            
             <div class="sidebar-wrapper" id="sidebar-wrapper">
+                <div class="user-panel">
+                    <div class="image">
+                        <img src="img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    </div>
+                
+                    <div class="info">
+                        <a href="/detailUser" class="d-block">Welcome {{ Auth::user()->name }} </a>
+                    </div>
+                </div>
                 <ul class="nav">
                     <li class="{{ 'dashboard' == request()->path() ? 'active' : '' }}">
                         <a href="/dashboard">
@@ -169,30 +179,9 @@
 
             <footer class="footer">
                 <div class=" container-fluid ">
-                <nav>
-                    <ul>
-                    <li>
-                        <a href="https://www.creative-tim.com">
-                        Creative Tim
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://presentation.creative-tim.com">
-                        About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://blog.creative-tim.com">
-                        Blog
-                        </a>
-                    </li>
-                    </ul>
-                </nav>
-                <div class="copyright" id="copyright">
-                    &copy; <script>
-                    document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
-                    </script>, Designed by <a href="https://www.invisionapp.com" target="_blank">Invision</a>. Coded by <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-                </div>
+                    <div class="copyright" id="copyright">
+                        <a>Copyright &copy; 2020 Universitas Lampung. All right reserved.</a>
+                    </div>
                 </div>
             </footer>
         </div>
