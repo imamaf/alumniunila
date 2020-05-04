@@ -15,7 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin', 'AdminController@index');
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/alumni', function () {
+    return view('admin.alumni');
+});
+
+Route::get('/jurusan', function () {
+    return view('admin.jurusan');
+});
+
+Route::get('/dashboard', 'AdminController@index');
 
 Auth::routes();
 
@@ -25,4 +37,4 @@ Route::get('/detailUser', 'AdminController@detailUser');
 //show Detail
 Route::get('/detail/{id}', 'UserAttributsController@show');
 //CreateDataAlumni
-Route::get('/alumni', 'UserAttributsController@create');
+Route::get('/alumni2', 'UserAttributsController@create');
