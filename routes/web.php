@@ -15,6 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/alumni', function () {
+    return view('admin.alumni');
+});
+
+Route::get('/jurusan', function () {
+    return view('admin.jurusan');
+});
+
 Route::get('/admin', 'AdminController@index');
 
 Auth::routes();
