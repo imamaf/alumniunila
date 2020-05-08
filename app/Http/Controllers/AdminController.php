@@ -32,7 +32,7 @@ class AdminController extends Controller
     }
 
 
-    //Detail User
+    //Detail Userr
     public function detailUser() {
         $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
@@ -43,7 +43,7 @@ class AdminController extends Controller
             return view('admin.detail-user' , ['users_attribut' => $users_attribut]);
         }
     }
-    
+
     public function viewDataJurusan() {
     $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
