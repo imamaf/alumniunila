@@ -17,7 +17,9 @@
                     <h5 class="card-title">Data Alumni</h5>                   
                     @if ($users_attribut !== null)
                     <div class="tambah" style="margin-left: auto;">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Edit </button>
+                    <a href="{{url('/detail-user')}}">
+                        <button class="btn btn-primary">Detail</button>
+                        </a>
                     </div>
                    @endif
                    @if ($users_attribut === null)
@@ -41,15 +43,15 @@
                                 <th>Aksi</th>
                             </thead>
                             <tbody>
-                                <tr>
                                 @foreach($users_attributAll as $usr_Attr_all)
+                                <tr>
                                     <td>{{$usr_Attr_all->nama}}</td>
-                                    <td>{{$usr_Attr_all->no_hp}}</td>
-                                    <td>{{$usr_Attr_all->alamat}}</td>
-                                    <td>{{$usr_Attr_all->status}}</td>
                                     <td>{{$usr_Attr_all->jurusan_prodi}}</td>
-                                @endforeach
+                                    <td>{{$usr_Attr_all->th_masuk}}</td>
+                                    <td>{{$usr_Attr_all->th_lulus}}</td>
+                                    <td><a href="">view<a></td>
                                 </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -69,6 +71,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                @if($users_attribut != null)
                     <form action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
@@ -127,6 +130,7 @@
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 </form>
+                @endif
             </div>
         </div>
     </div>

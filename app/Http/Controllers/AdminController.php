@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Users_Attribut;
-
+use PDF;
 class AdminController extends Controller
 {
     
@@ -47,11 +47,7 @@ class AdminController extends Controller
         $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
         $users_attributAll = Users_Attribut::all();
-        if($users_attribut != null) {
-            return view('admin.jurusan' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll]);
-        } else {
-            return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll])->with('status' , 'Anda Belum menambahkan data anda');
-        }
+        return view('admin.jurusan' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll]);
     }
 
     public function viewDataAlumni() {
@@ -63,5 +59,17 @@ class AdminController extends Controller
         } else {
             return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll])->with('status' , 'Anda Belum menambahkan data anda');
         }
+    }
+
+    public function generatePDF()
+
+    {
+        $data = ['title' => 'Welcome to belajarphp.net'];
+
+        $id = auth()->user()->id;
+        $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
+
+        $pdf = PDF::loadView('user-detail-PDF', ['users_attribut' => $users_attribut]);
+        return $pdf->download('laporan-pdf.pdf');
     }
 }

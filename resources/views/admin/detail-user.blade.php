@@ -16,6 +16,9 @@
                     <h5 class="card-title">Detail Profil</h5> 
                     <div class="card-header" style="display: flex;">  
                         <div class="tambah" style="margin-left: auto;">
+                            <button class="btn btn-primary">
+                            <a href="{{url('/laporan-pdf')}}" style="color:white;">Cetak </a>
+                             </button>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Edit </button>
                         </div>
                     </div>          
@@ -24,7 +27,7 @@
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
                             <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut ->nama}}">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->nama}}">
                             </div>
                         </div>
                         <div class="form-group row">

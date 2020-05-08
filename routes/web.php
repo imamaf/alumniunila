@@ -41,4 +41,4 @@ Route::put('/add-alumni', 'UserAttributsController@addUserAlumni');
 Route::put('/update-password', 'UserController@updatePassword');
 
 //pdf
-Route::get('laporan-pdf','HomeController@generatePDF');
+Route::get('laporan-pdf','AdminController@generatePDF');

@@ -31,7 +31,12 @@
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <div class="user-panel">
                     <div class="image">
+                    @if($users_attribut != null)
                         <img src="{{asset('storage/<?php echo ($users_attribut->path_foto)?>')}}" class="img-circle elevation-2" alt="User Image">
+                    @endif
+                    @if($users_attribut == null)
+                    <img src="{{asset('')}}" class="img-circle elevation-2" alt="User Image">
+                    @endif
                     </div>
                 
                     <div class="info">
