@@ -14,8 +14,7 @@ class CreateUsersAttributsTable extends Migration
     public function up()
     {
         Schema::create('users_attributs', function (Blueprint $table) {
-            $table->dropPrimary();
-            $table->unsignedInteger('id');
+            $table->increments('id');
             $table->string('nama', 55);
             $table->string('tempat_lahir', 55);
             $table->string('status', 55);
