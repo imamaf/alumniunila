@@ -34,8 +34,8 @@ Route::get('/detail-user', 'AdminController@detailUser');
 Route::get('/detail/{id}', 'UserAttributsController@show');
 //CreateDataAlumni
 Route::put('/add-alumni', 'UserAttributsController@addUserAlumni');
-
-// Route::get('/forms-edit-user/{id}', 'UserAttributsController@edit');
+//Delete
+Route::delete('/delete-user/{users_Attribut}', 'UserAttributsController@deleteUser');
 
 //edit pw
 Route::put('/update-password', 'UserController@updatePassword');
