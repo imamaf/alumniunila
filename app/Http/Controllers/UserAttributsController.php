@@ -122,7 +122,6 @@ class UserAttributsController extends Controller
         $usr_attr = DB::table('users_attributs')->where('id', $id)->first();
         return view('admin/crud/edit-user/forms-edit-user', ['usr_attr'=>$usr_attr]);
 
-        //
     }
 
     /**

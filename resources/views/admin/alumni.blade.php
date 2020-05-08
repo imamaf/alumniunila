@@ -99,7 +99,7 @@
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="<?php echo $users_attribut == null ? "" : $users_attribut->nama ?>">
+                            <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="{{ Auth::user()->name }}">
                         </div>
                         <div class="form-group">
                             

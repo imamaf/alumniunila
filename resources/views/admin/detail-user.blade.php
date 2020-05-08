@@ -131,7 +131,7 @@
                         <img class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
                         </div>
                             <div class="form-group">
-                            <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="<?php echo $users_attribut == null ? "" : $users_attribut->nama ?>">
+                            <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="{{ Auth::user()->name }}">
                         </div>
                         <div class="form-group">
                             
