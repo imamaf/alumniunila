@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Users_Attribut;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserAttributsController extends Controller
 {
@@ -35,20 +36,31 @@ class UserAttributsController extends Controller
 
     /**
      * Show the form for creating a new resource.
+      * @param  \Illuminate\Http\Request  $request
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {   $id = auth()->user()->id;
-        $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
-        // dd($users_attribut);
-        if($users_attribut != null) {
-            return 'Datanya ada';
-        } else {
-
-            return view('admin/crud/addAlumni' );
-        }
-        
+    public function AddUserAlumni(Request $request)
+    { 
+        $id = auth()->user()->id;
+        $path = $request->file('path_foto')->store('foto_users');
+        Users_Attribut::where('id' , $id)
+        ->update([
+            'nama' => $request->nama,
+            'tempat_lahir' => $request->tempat_lahir,
+            'status' => $request->status,
+            'no_hp' => $request->no_hp,
+            'tgl_lahir' => $request->tgl_lahir,
+            'alamat' => $request->alamat,
+            'jurusan_prodi' => $request->jurusan_prodi,
+            'th_masuk' => $request->th_masuk,
+            'th_lulus' => $request->th_lulus,
+            'tempat_bekerja' => $request->tempat_bekerja,
+            'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja,
+            'path_foto' =>$path,
+        ]);
+        return redirect('/dashboard')->with('status' , 'Data berhasil ditambahkan');
+        //  view('admin/dashboard' );
     }
 
     /**
@@ -83,8 +95,12 @@ class UserAttributsController extends Controller
      * @param  \App\Users_Attribut  $users_Attribut
      * @return \Illuminate\Http\Response
      */
-    public function edit(Users_Attribut $users_Attribut)
+    public function edit(string $id )
     {
+        $id = auth()->user()->id;
+        $usr_attr = DB::table('users_attributs')->where('id', $id)->first();
+        return view('admin/crud/edit-user/forms-edit-user', ['usr_attr'=>$usr_attr]);
+
         //
     }
 

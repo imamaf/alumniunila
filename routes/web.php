@@ -19,13 +19,9 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/alumni', function () {
-    return view('admin.alumni');
-});
+Route::get('/alumni','AdminController@viewDataAlumni');
 
-Route::get('/jurusan', function () {
-    return view('admin.jurusan');
-});
+Route::get('/jurusan','AdminController@viewDataJurusan');
 
 Route::get('/dashboard', 'AdminController@index');
 
@@ -33,8 +29,16 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/detailUser', 'AdminController@detailUser');
+Route::get('/detail-user', 'AdminController@detailUser');
 //show Detail
 Route::get('/detail/{id}', 'UserAttributsController@show');
 //CreateDataAlumni
-Route::get('/alumni2', 'UserAttributsController@create');
+Route::put('/add-alumni', 'UserAttributsController@addUserAlumni');
+
+// Route::get('/forms-edit-user/{id}', 'UserAttributsController@edit');
+
+//edit pw
+Route::put('/update-password', 'UserController@updatePassword');
+
+//pdf
+Route::get('laporan-pdf','HomeController@generatePDF');

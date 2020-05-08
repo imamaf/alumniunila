@@ -51,76 +51,77 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Main content -->
         <div class="content container">
-        <form>
+        <form method="POST" action = "{{url('add-alumni')}}" enctype="multipart/form-data" name="formName">
+        @csrf
             <div class="container-fluid">
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="nama">
+                    <input type="text" readonly class="form-control" id="nama" name="nama">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Lahir</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="tempat_Lahir">
+                    <input type="text" readonly class="form-control" id="tempat_Lahir" name="tempat_Lahir">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tangggal Lahir</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="tgl_lahir" name="tgl_lahir">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="alamat" name="alamt">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">No Hp</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="no_hp" name="no_hp">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="inputPassword" class="col-sm-2 col-form-label">Jurusan</label>
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Jurusan Prodi</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="jurusan_prodi" name="jurusan_prodi">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Masuk</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="th_masuk" name="th_masuk">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Lulus</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="th_lulus" name="th_lulus">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Status</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword"> 
+                    <input type="text" readonly class="form-control" id="status" name="status"> 
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Bekerja</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="tempat_bekerja" name="tempat_bekerja">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="inputPassword" class="col-sm-2 col-form-label">Waktu Lulus Kerja</label>
                     <div class="col-sm-10">
-                    <input type="text" readonly class="form-control" id="inputPassword">
+                    <input type="text" readonly class="form-control" id="waktu_lulus_bekerja" name="waktu_lulus_bekerja">
                     </div>
                 </div>
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="validatedCustomFile" required>
+                  <input type="file" class="custom-file-input" id="validatedCustomFile" name="path_foto" required>
                   <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
                   <div class="invalid-feedback">Example invalid custom file feedback</div>
                 </div>

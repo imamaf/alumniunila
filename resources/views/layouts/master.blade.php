@@ -31,11 +31,11 @@
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <div class="user-panel">
                     <div class="image">
-                        <img src="img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{asset('storage/<?php echo ($users_attribut->path_foto)?>')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                 
                     <div class="info">
-                        <a href="/detailUser" class="d-block">Welcome {{ Auth::user()->name }} </a>
+                        <a href="{{url('/detail-user')}}" class="d-block">Welcome {{ Auth::user()->name }} </a>
                     </div>
                 </div>
                 <ul class="nav">
@@ -148,6 +148,9 @@
                                         document.getElementById('logout-form').submit();" class="dropdown-item">
                                         Logout
                                     </a>
+                                    <a href="" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" onclick="validate()">
+                                        Ganti Password
+                                    </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -168,6 +171,60 @@
                 </div>
             </nav>
             <!-- End Navbar -->
+
+             <!-- MODAL GANTI PASSWORD -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ganti Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+                <div class="modal-body">
+                <form method="POST" action="{{url('/update-password')}}">
+                @csrf
+                @method('PUT')
+                <div class="form-group row">
+                    <label for="old_password" class="col-md-2 col-form-label">{{ __('Current password') }}</label>
+                    <div class="col-md-6">
+                        <input id="old_password" name="old_password" type="password" class="form-control" required  value="" autofocus>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="new_password" class="col-md-2 col-form-label">{{ __('New password') }}</label>
+                    <div class="col-md-6">
+                        <input id="new_password" name="new_password" type="password" class="form-control"   value="" required autofocus>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="password_confirm" class="col-md-2 col-form-label">{{ __('Confirm password') }}</label>
+
+                    <div class="col-md-6">
+                        <input id="password_confirm" name="password_confirm" type="password" class="form-control"  value=""  required
+                            autofocus>
+                            <span id='message'></span>
+                    </div>
+                </div>
+                <div class="form-group login-row row mb-0">
+                    <div class="col-md-8 offset-md-2">
+                        <button id="btn" type="submit" class="btn btn-primary">
+                            {{ __('Submit') }}
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="btn" class="btn btn-primary offset-md-2" > {{ __('Submit') }}</button>
+                </div> -->
+                </form>
+                </div>
+            </div>
+            </div>
 
             <div class="panel-header panel-header-sm">
             </div>
@@ -200,6 +257,29 @@
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+    $('#new_password, #password_confirm').on('keyup', function () {
+    if ($('#new_password').val() == $('#password_confirm').val()) {
+        $('#message').html('Matching').css('color', 'green');
+    } else 
+        $('#message').html('Not Matching').css('color', 'red');
+    });
+    </script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script>
+    function validate() {
+            $('#old_password, #new_password, #password_confirm').on('keyup', function() {
+            if ($('#old_password').val() === ''|| $('#new_password').val() === '' || $('#password_confirm').val() ==='' ) {
+                return $('#btn').prop('disabled', true);
+            }
+            else {
+                return $('#btn').prop('disabled', false);
+            }
+        });
+    return $('#btn').prop('disabled', true);
+    }
+    </script>
 
     @yield('scripts')
 </body>
