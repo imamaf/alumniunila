@@ -39,12 +39,13 @@ class AdminController extends Controller
         if($users_attribut != null) {
             return view('admin.detail-user' , ['users_attribut' => $users_attribut]);
         } else {
-            return 'Data Belum Tersedia';
+            // dd($users_attribut);
+            return view('admin.detail-user' , ['users_attribut' => $users_attribut]);
         }
     }
     
     public function viewDataJurusan() {
-        $id = auth()->user()->id;
+    $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
         $users_attributAll = Users_Attribut::all();
         return view('admin.jurusan' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll]);

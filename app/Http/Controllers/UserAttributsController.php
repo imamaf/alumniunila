@@ -44,22 +44,43 @@ class UserAttributsController extends Controller
     { 
         $id = auth()->user()->id;
         $path = $request->file('path_foto')->store('foto_users');
-        Users_Attribut::where('id' , $id)
-        ->update([
-            'nama' => $request->nama,
-            'tempat_lahir' => $request->tempat_lahir,
-            'status' => $request->status,
-            'no_hp' => $request->no_hp,
-            'tgl_lahir' => $request->tgl_lahir,
-            'alamat' => $request->alamat,
-            'jurusan_prodi' => $request->jurusan_prodi,
-            'th_masuk' => $request->th_masuk,
-            'th_lulus' => $request->th_lulus,
-            'tempat_bekerja' => $request->tempat_bekerja,
-            'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja,
-            'path_foto' =>$path,
-        ]);
-        return redirect('/dashboard')->with('status' , 'Data berhasil ditambahkan');
+        $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
+        if($users_attribut != null) {
+            Storage::delete($users_attribut->path_foto);
+            Users_Attribut::where('id' , $id)
+            ->update([
+                'nama' => $request->nama,
+                'tempat_lahir' => $request->tempat_lahir,
+                'status' => $request->status,
+                'no_hp' => $request->no_hp,
+                'tgl_lahir' => $request->tgl_lahir,
+                'alamat' => $request->alamat,
+                'jurusan_prodi' => $request->jurusan_prodi,
+                'th_masuk' => $request->th_masuk,
+                'th_lulus' => $request->th_lulus,
+                'tempat_bekerja' => $request->tempat_bekerja,
+                'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja,
+                'path_foto' =>$path,
+            ]);
+             return redirect('/alumni')->with('status' , 'Data berhasil di update');
+       } else {
+            Users_Attribut::create([
+                'id' => $id, 
+                'nama' => $request->nama,
+                'tempat_lahir' => $request->tempat_lahir,
+                'status' => $request->status,
+                'no_hp' => $request->no_hp,
+                'tgl_lahir' => $request->tgl_lahir,
+                'alamat' => $request->alamat,
+                'jurusan_prodi' => $request->jurusan_prodi,
+                'th_masuk' => $request->th_masuk,
+                'th_lulus' => $request->th_lulus,
+                'tempat_bekerja' => $request->tempat_bekerja,
+                'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja,
+                'path_foto' =>$path,
+            ]);
+            return redirect('/alumni')->with('status' , 'Data berhasil ditambahkan');
+       }
         //  view('admin/dashboard' );
     }
 

@@ -32,10 +32,10 @@
                 <div class="user-panel">
                     <div class="image">
                     @if($users_attribut != null)
-                        <img src="{{asset('storage/<?php echo ($users_attribut->path_foto)?>')}}" class="img-circle elevation-2" alt="User Image">
+                        <img src="storage/<?php echo $users_attribut->path_foto ?>" class="img-circle elevation-2" alt="User Image">
                     @endif
                     @if($users_attribut == null)
-                    <img src="{{asset('')}}" class="img-circle elevation-2" alt="User Image">
+                    <img src="img/user-hero.png" class="img-circle elevation-2" alt="User Image">
                     @endif
                     </div>
                 
@@ -275,7 +275,7 @@
     <script>
     function validate() {
             $('#old_password, #new_password, #password_confirm').on('keyup', function() {
-            if ($('#old_password').val() === ''|| $('#new_password').val() === '' || $('#password_confirm').val() ==='' ) {
+            if ($('#old_password').val() === ''|| $('#new_password').val() === '' || $('#password_confirm').val() === '' ) {
                 return $('#btn').prop('disabled', true);
             }
             else {
