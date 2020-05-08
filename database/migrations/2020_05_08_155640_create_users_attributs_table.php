@@ -26,11 +26,7 @@ class CreateUsersAttributsTable extends Migration
             $table->date('th_lulus');
             $table->string('tempat_bekerja', 55);
             $table->date('waktu_lulus_bekerja');
-<<<<<<< HEAD:database/migrations/2020_05_02_091604_create_users_attributs_table.php
-            $table->string('path_foto');
-=======
             $table->binary('path_foto');
->>>>>>> 80a134672e5cff95b5e9e65f1b34af8596066dfe:database/migrations/2020_05_08_155640_create_users_attributs_table.php
             $table->timestamps();
         });
     }
