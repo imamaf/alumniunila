@@ -64,6 +64,7 @@ class UserAttributsController extends Controller
             ]);
              return redirect('/alumni')->with('status' , 'Data berhasil di update');
        } else {
+           dd($id);
             Users_Attribut::create([
                 'id' => $id, 
                 'nama' => $request->nama,

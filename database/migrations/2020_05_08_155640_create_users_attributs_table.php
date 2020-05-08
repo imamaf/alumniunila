@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersAttribiutsTable extends Migration
+class CreateUsersAttributsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,19 +14,20 @@ class CreateUsersAttribiutsTable extends Migration
     public function up()
     {
         Schema::create('users_attributs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->dropPrimary();
+            $table->unsignedInteger('id');
             $table->string('nama', 55);
             $table->string('tempat_lahir', 55);
             $table->string('status', 55);
             $table->integer('no_hp');
             $table->date('tgl_lahir');
-            $table->string('alamat', 55);
+            $table->string('alamat', 255);
             $table->string('jurusan_prodi', 55);
             $table->date('th_masuk');
             $table->date('th_lulus');
             $table->string('tempat_bekerja', 55);
             $table->date('waktu_lulus_bekerja');
-            $table->binary('foto');
+            $table->binary('path_foto');
             $table->timestamps();
         });
     }
@@ -38,6 +39,6 @@ class CreateUsersAttribiutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_attribiuts');
+        Schema::dropIfExists('users_attributs');
     }
 }

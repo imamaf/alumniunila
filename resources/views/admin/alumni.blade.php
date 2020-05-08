@@ -85,6 +85,18 @@
                 <form action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
+                    <div class="form-group">
+                        <label>Upload Image</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-default btn-file">
+                                    Browse… <input type="file" id="imgInp" name="path_foto" class="custom-file-input" required>
+                                </span>
+                            </span>
+                            <input type="text" class="form-control" readonly>
+                        </div>
+                        <img class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
+                        </div>
                         <div class="form-group">
                             
                             <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="<?php echo $users_attribut == null ? "" : $users_attribut->nama ?>">
@@ -128,11 +140,6 @@
                         <div class="form-group">
                             
                             <input type="text" class="form-control" id="status" placeholder="waktu lulus kerja" name="waktu_lulus_bekerja" value="<?php echo $users_attribut == null ? "" : $users_attribut->waktu_lulus_bekerja  ?>">
-                        </div>
-                        <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="validatedCustomFile" name="path_foto" required>
-                            <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                            <div class="invalid-feedback">Example invalid custom file feedback</div>
                         </div>
                 </div>
                 <div class="modal-footer">
