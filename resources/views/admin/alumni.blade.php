@@ -9,23 +9,20 @@
 Alumni
 @endsection
 
+@section('cari')
+Alumni
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header" style="display: flex;">
                     <h5 class="card-title">Data Alumni</h5>               
-                    @if ($users_attribut !== null)
-                    <div class="tambah" style="margin-left: auto;">
-                    <a href="{{url('/detail-user')}}">
-                        <button class="btn btn-primary">Detail</button>
-                        </a>
-                    </div>
-                   @endif
                    @if ($users_attribut === null)
  
                     <div class="tambah" style="margin-left: auto;">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Tambah </button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Tambah Data Alumni </button>
                     </div>
                     @endif
                 </div>
@@ -35,9 +32,9 @@ Alumni
                         {{ session('status') }}
                     </div>
                     @endif
-                    @if (session('error'))
+                    @if (session('error') || !empty($notFound) )
                     <div class="alert alert-danger" role="alert">
-                        {{ session('error') }}
+                       <?php echo !empty($error) ? $error:$notFound ?>
                     </div>
                     @endif    
                 <div class="card-body">
@@ -65,16 +62,13 @@ Alumni
                                     <td>{{$result + $users_attributAll->firstitem()}}</td>
                                     <td>{{$usr_Attr_all->nama}}</td>
                                     <td>{{$usr_Attr_all->jurusan_prodi}}</td>
-                                    <td>{{$usr_Attr_all->th_masuk}}</td>
-                                    <td>{{$usr_Attr_all->th_lulus}}</td>
+                                    <td>{{substr($usr_Attr_all->th_masuk,0,4)}}</td>
+                                    <td>{{substr($usr_Attr_all->th_lulus,0 ,4 )}}</td>
                                     @if($usr_Attr_all->nama === Auth::user()->name )
                                     <td>
                                         <a href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
                                         <a data-toggle="modal" data-target="#ModalAddAlumni" href="#" class="btn btn-edit"><i class="far fa-edit"></i><a>
                                         <a data-toggle="modal" data-target="#exampleModalCenter" href="#" class="btn btn-delete"><i class="far fa-trash-alt"></i><a>
-                                        <!-- <i class="far fa-eye"></i>
-                                        <i data-toggle="modal" data-target="#ModalAddAlumni" class="fas fa-edit"></i>
-                                        <i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-trash"></i> </a> -->
                                     </td>
                                     @endif
                                     @if($usr_Attr_all->nama !== Auth::user()->name )
@@ -189,7 +183,11 @@ Alumni
 </section>
 @endsection
 
-
+<script>
+    $('.btnsearch').click(function(e){
+               $("#searchmodal").modal('show');
+     })
+</script>
 @section('scripts')
 
 @endsection

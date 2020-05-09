@@ -6,7 +6,7 @@
 @endsection
 
 @section('header')
-    Dashboard
+Dashboard
 @endsection
 
 @section('content')
