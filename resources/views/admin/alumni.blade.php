@@ -17,8 +17,8 @@ Alumni
                     <h5 class="card-title">Data Alumni</h5>               
                     @if ($users_attribut !== null)
                     <div class="tambah" style="margin-left: auto;">
-                        <a href="{{url('/detail-user')}}">
-                            <button class="btn btn-primary">Detail</button>
+                    <a href="{{url('/detail-user')}}">
+                        <button class="btn btn-primary">Detail</button>
                         </a>
                     </div>
                    @endif
@@ -67,23 +67,21 @@ Alumni
                                     <td>{{$usr_Attr_all->jurusan_prodi}}</td>
                                     <td>{{$usr_Attr_all->th_masuk}}</td>
                                     <td>{{$usr_Attr_all->th_lulus}}</td>
+                                    @if($usr_Attr_all->nama === Auth::user()->name )
                                     <td>
                                         <a href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
-                                        <a href="#" class="btn btn-edit"><i class="far fa-edit"></i><a>
-                                        <a href="#" class="btn btn-delete"><i class="far fa-trash-alt"></i><a>
-                                    </td>
-                                    <!-- @if($usr_Attr_all->nama === Auth::user()->name )
-                                    <td>
-                                        <i class="far fa-eye"></i>
+                                        <a data-toggle="modal" data-target="#ModalAddAlumni" href="#" class="btn btn-edit"><i class="far fa-edit"></i><a>
+                                        <a data-toggle="modal" data-target="#exampleModalCenter" href="#" class="btn btn-delete"><i class="far fa-trash-alt"></i><a>
+                                        <!-- <i class="far fa-eye"></i>
                                         <i data-toggle="modal" data-target="#ModalAddAlumni" class="fas fa-edit"></i>
-                                        <i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-trash"></i> </a>
+                                        <i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-trash"></i> </a> -->
                                     </td>
                                     @endif
                                     @if($usr_Attr_all->nama !== Auth::user()->name )
                                     <td>
-                                         <i class="far fa-eye"></i>
+                                    <a href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
                                     </td>
-                                    @endif -->
+                                    @endif
                                 </tr>
                                 @endforeach
                             </tbody>

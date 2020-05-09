@@ -54,7 +54,7 @@ class AdminController extends Controller
     public function viewDataAlumni() {
         $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
-        $users_attributAll = Users_Attribut::latest()->paginate(10);
+        $users_attributAll = Users_Attribut::latest()->paginate(7);
         if($users_attribut != null) {
             return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll]);
         } else {
@@ -85,7 +85,7 @@ class AdminController extends Controller
                     // mengirim data pegawai ke view index
                 return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll]);
             } else {
-                $users_attributAll = Users_Attribut::latest()->paginate(10);
+                $users_attributAll = Users_Attribut::latest()->paginate(7);
                 return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll]);
             }   
         } else {
