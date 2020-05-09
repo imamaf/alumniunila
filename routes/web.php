@@ -41,4 +41,7 @@ Route::delete('/delete-user/{users_Attribut}', 'UserAttributsController@deleteUs
 Route::put('/update-password', 'UserController@updatePassword');
 
 //pdf
-Route::get('laporan-pdf','AdminController@generatePDF');
+Route::get('/laporan-pdf','AdminController@generatePDF');
+
+//serach
+Route::get('/cari/{pathSearch}','AdminController@search');

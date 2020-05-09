@@ -6,7 +6,7 @@
 @endsection
 
 @section('header')
-    Alumni
+Alumni
 @endsection
 
 @section('content')
@@ -47,20 +47,22 @@
                     <div class="table-responsive">
                         <table class="table">
                             <thead class=" text-primary">
+                                <th>No</th>
                                 <th>Nama</th>
                                 <th>Jurusan/Prodi</th>
                                 <th>Tahun Masuk</th>
                                 <th>Tahun Lulus</th>
                                 <th>Aksi</th>
                             </thead>
-                                @foreach($users_attributAll as $usr_Attr_all)
                             <tbody>
+                                @foreach($users_attributAll as $result => $usr_Attr_all)
                                 @if($usr_Attr_all->nama === Auth::user()->name)
                                 <tr style="color:red">
                                 @endif
                                 @if($usr_Attr_all->nama !== Auth::user()->name)
                                 <tr>
                                 @endif
+                                    <td>{{$result + $users_attributAll->firstitem()}}</td>
                                     <td>{{$usr_Attr_all->nama}}</td>
                                     <td>{{$usr_Attr_all->jurusan_prodi}}</td>
                                     <td>{{$usr_Attr_all->th_masuk}}</td>
@@ -78,9 +80,10 @@
                                     </td>
                                     @endif
                                 </tr>
-                            </tbody>
                                 @endforeach
+                            </tbody>
                         </table>
+                        {{ $users_attributAll->links() }}
                     </div>
                 </div>
             </div>

@@ -22,7 +22,7 @@
     <div class="wrapper ">
         <div class="sidebar" data-color="blue"><!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
             <div class="logo" style="display: flex">
-                <img src="img/logo-unila.png" alt="Logo" width="45">
+                <img src="{{url('img/logo-unila.png')}}" alt="Logo" width="45">
                 <a href="http://www.creative-tim.com" class="simple-text logo-normal" style="font-size: 15px">
                     Universitas Lampung
                 </a>
@@ -32,7 +32,7 @@
                 <div class="user-panel">
                     <div class="image">
                     @if($users_attribut != null)
-                        <img src="storage/<?php echo $users_attribut->path_foto ?>" class="img-circle elevation-2" alt="User Image">
+                        <img src="<?php echo url('storage', $users_attribut->path_foto) ?>" class="img-circle elevation-2" alt="User Image">
                     @endif
                     @if($users_attribut == null)
                     <img src="img/user-hero.png" class="img-circle elevation-2" alt="User Image">
@@ -122,9 +122,9 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form>
+                        <form action="/cari/@yield('header')" method="GET">
                             <div class="input-group no-border">
-                                <input type="text" value="" class="form-control" placeholder="Search...">
+                                <input type="text" name="cari" value="{{ old('cari') }}" class="form-control" placeholder="Search Data @yield('header')">
                                 <div class="input-group-append">
                                     <div class="input-group-text">
                                         <i class="now-ui-icons ui-1_zoom-bold"></i>

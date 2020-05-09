@@ -54,7 +54,7 @@ class AdminController extends Controller
     public function viewDataAlumni() {
         $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
-        $users_attributAll = Users_Attribut::all();
+        $users_attributAll = Users_Attribut::latest()->paginate(10);
         if($users_attribut != null) {
             return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll]);
         } else {
@@ -72,5 +72,25 @@ class AdminController extends Controller
 
         $pdf = PDF::loadView('user-detail-PDF', ['users_attribut' => $users_attribut]);
         return $pdf->download('laporan-pdf.pdf');
+    }
+
+    public function search(Request $request , string $pathSearch){
+        if($pathSearch == 'Alumni'){
+            $id = auth()->user()->id;
+            $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
+            $cari = $request->cari;
+            if($cari != '') {
+                $users_attributAll = DB::table('users_attributs')->where('nama','like' ,"%".$cari."%")
+                ->paginate();
+                    // mengirim data pegawai ke view index
+                return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll]);
+            } else {
+                $users_attributAll = Users_Attribut::latest()->paginate(10);
+                return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll]);
+            }   
+        } else {
+            return 'jurusan';
+        }
+
     }
 }

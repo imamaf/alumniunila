@@ -6,7 +6,7 @@
 @endsection
 
 @section('header')
-    Jurusan/Prodi
+Jurusan/Prodi
 @endsection
 
 @section('content')
