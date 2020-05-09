@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Users_Attribut;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -47,6 +48,10 @@ class UserAttributsController extends Controller
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
         if($users_attribut != null) {
             Storage::delete($users_attribut->path_foto);
+            User::where('id' , $id)
+            ->update([
+                'name' => $request->nama,
+            ]);
             Users_Attribut::where('id' , $id)
             ->update([
                 'nama' => $request->nama,
@@ -64,6 +69,10 @@ class UserAttributsController extends Controller
             ]);
              return redirect('/alumni')->with('status' , 'Data berhasil di update');
        } else {
+            User::where('id' , $id)
+            ->update([
+                'name' => $request->nama,
+            ]);
             Users_Attribut::create([
                 'id' => $id, 
                 'nama' => $request->nama,
@@ -142,8 +151,11 @@ class UserAttributsController extends Controller
      * @param  \App\Users_Attribut  $users_Attribut
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Users_Attribut $users_Attribut)
+    public function deleteUser(Users_Attribut $users_Attribut)
     {
+        Storage::delete($users_Attribut->path_foto);
+        $users_Attribut->delete();
+        return redirect('/alumni')->with('status' , 'Data berhasil dihapus');
         //
     }
 }

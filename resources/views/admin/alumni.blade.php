@@ -42,7 +42,7 @@
                     @endif    
                 <div class="card-body">
                 @if ($users_attribut === null)
-                    <p style="color: red;">Andah belum menambahkan data anda </p>
+                    <p style="color: red;">Infomarsi : Anda belum menambahkan data pribadi anda </p>
                 @endif
                     <div class="table-responsive">
                         <table class="table">
@@ -55,7 +55,12 @@
                             </thead>
                                 @foreach($users_attributAll as $usr_Attr_all)
                             <tbody>
+                                @if($usr_Attr_all->nama === Auth::user()->name)
+                                <tr style="color:red">
+                                @endif
+                                @if($usr_Attr_all->nama !== Auth::user()->name)
                                 <tr>
+                                @endif
                                     <td>{{$usr_Attr_all->nama}}</td>
                                     <td>{{$usr_Attr_all->jurusan_prodi}}</td>
                                     <td>{{$usr_Attr_all->th_masuk}}</td>
@@ -65,6 +70,18 @@
                                         <a href="#" class="btn btn-edit"><i class="far fa-edit"></i><a>
                                         <a href="#" class="btn btn-delete"><i class="far fa-trash-alt"></i><a>
                                     </td>
+                                    <!-- @if($usr_Attr_all->nama === Auth::user()->name )
+                                    <td>
+                                        <i class="far fa-eye"></i>
+                                        <i data-toggle="modal" data-target="#ModalAddAlumni" class="fas fa-edit"></i>
+                                        <i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-trash"></i> </a>
+                                    </td>
+                                    @endif
+                                    @if($usr_Attr_all->nama !== Auth::user()->name )
+                                    <td>
+                                         <i class="far fa-eye"></i>
+                                    </td>
+                                    @endif -->
                                 </tr>
                             </tbody>
                                 @endforeach
@@ -75,6 +92,15 @@
         </div>
     </div>
 <section>
+ <!-- Alert -->
+ @section('message')
+    Apakah Anda yakin ingin menghapus data ini ?
+@endsection
+ @section('url')
+ /delete-user/{{Auth::user()->id}}
+@endsection
+ @include('layouts.alert-modal')
+<!-- end alert -->
 <!-- Modall -->
 <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -99,7 +125,12 @@
                             </span>
                             <input type="text" class="form-control" readonly>
                         </div>
+                        @if($users_attribut != null)
+                        <img src="storage/<?php echo $users_attribut->path_foto ?>" class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
+                        @endif
+                        @if($users_attribut == null)
                         <img class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
+                        @endif
                         </div>
                         <div class="form-group">
                             

@@ -16,7 +16,7 @@
                     <h5 class="card-title">Detail Profil</h5> 
                     <div class="card-header" style="display: flex;">  
                     @if($users_attribut == null)
-                    <p style="color : red;"> Anda belum menambahkan data anda </p>
+                    <p style="color: red;">Infomarsi : Anda belum menambahkan data pribadi anda </p>
                     <div class="tambah" style="margin-left: auto;">
                     <button class="btn btn-primary"><a href="{{url('/dashboard')}}" style="color:white;">Kembali </a></button>
                     <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Tambah </button>
@@ -128,7 +128,12 @@
                             </span>
                             <input type="text" class="form-control" readonly>
                         </div>
+                        @if($users_attribut != null)
+                        <img src="storage/<?php echo $users_attribut->path_foto ?>" class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
+                        @endif
+                        @if($users_attribut == null)
                         <img class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
+                        @endif
                         </div>
                             <div class="form-group">
                             <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="{{ Auth::user()->name }}">
