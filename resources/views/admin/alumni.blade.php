@@ -66,14 +66,14 @@ Alumni
                                     <td>{{substr($usr_Attr_all->th_lulus,0 ,4 )}}</td>
                                     @if($usr_Attr_all->nama === Auth::user()->name )
                                     <td>
-                                        <a href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
+                                        <a data-toggle="modal" data-target="#ModalDetailAlumni" href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
                                         <a data-toggle="modal" data-target="#ModalAddAlumni" href="#" class="btn btn-edit"><i class="far fa-edit"></i><a>
                                         <a data-toggle="modal" data-target="#exampleModalCenter" href="#" class="btn btn-delete"><i class="far fa-trash-alt"></i><a>
                                     </td>
                                     @endif
                                     @if($usr_Attr_all->nama !== Auth::user()->name )
                                     <td>
-                                    <a href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
+                                    <a data-toggle="modal" data-target="#ModalDetailAlumni" href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
                                     </td>
                                     @endif
                                 </tr>
@@ -97,7 +97,7 @@ Alumni
  @include('layouts.alert-modal')
 <!-- end alert -->
 <!-- Modall -->
-<div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -181,6 +181,95 @@ Alumni
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
                 </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="ModalDetailAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Data Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="container-fluid">
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->nama}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->tempat_lahir}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tangggal Lahir</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->tgl_lahir}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->alamat}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">No Hp</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->no_hp}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Jurusan</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->jurusan_prodi}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Masuk</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->th_masuk}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Lulus</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->th_lulus}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Status</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword"  value="{{$users_attribut->status}}"> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Bekerja</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->tempat_bekerja}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Waktu Lulus Kerja</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->waktu_lulus_bekerja}}">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
