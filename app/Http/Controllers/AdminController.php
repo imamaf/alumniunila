@@ -57,10 +57,13 @@ class AdminController extends Controller
         $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
         $users_attributAll = Users_Attribut::latest()->paginate(5);
+        $jurusans = Tbl_jurusan::select('nama_jurusan')->get();
+        // dd($jurusans);
         if($users_attribut != null) {
-            return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll]);
+            return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll, 'jurusans' => $jurusans]);
         } else {
-            return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll])->with('status' , 'Anda Belum menambahkan data anda');
+            // dd($users_attribut);
+            return view('admin.alumni' , ['users_attribut' => $users_attribut, 'users_attributAll' => $users_attributAll, 'jurusans' => $jurusans])->with('status' , 'Anda Belum menambahkan data anda');
         }
     }
 

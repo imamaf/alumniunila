@@ -148,8 +148,12 @@ Alumni
                             <input type="text" class="form-control" id="no_hp" placeholder="no.handphone" name="no_hp" value="<?php echo $users_attribut == null ? "" : $users_attribut->no_hp  ?>">
                         </div>
                         <div class="form-group">
-                           
-                            <input type="text" class="form-control" id="jurusan_prodi" placeholder="jurusan" name="jurusan_prodi" value="<?php echo $users_attribut == null ? "" : $users_attribut->jurusan_prodi  ?>">
+                            <select class="form-control" placeholder="Jurusan" id="exampleFormControlSelect1" name="jurusan_prodi" value="<?php echo $users_attribut == null ? "" : $users_attribut->jurusan_prodi ?>">
+                            <option>lainnya</option>
+                            @foreach($jurusans as $js)
+                            <?php echo $users_attribut != null && $users_attribut->jurusan_prodi  === $js->nama_jurusan ? "<option selected> $users_attribut->jurusan_prodi</option>" : "<option> $js->nama_jurusan</option>" ?>
+                            @endforeach
+                            </select>
                         </div>
                         <div class="form-group">
                             
@@ -182,12 +186,6 @@ Alumni
     </div>
 </section>
 @endsection
-
-<script>
-    $('.btnsearch').click(function(e){
-               $("#searchmodal").modal('show');
-     })
-</script>
 @section('scripts')
 
 @endsection
