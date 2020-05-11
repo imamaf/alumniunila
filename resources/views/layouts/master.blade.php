@@ -36,7 +36,7 @@
                         <img src="<?php echo url('storage', $users_attribut->path_foto) ?>" class="img-circle elevation-2" alt="User Image">
                     @endif
                     @if($users_attribut == null)
-                    <img src="img/user-hero.png" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{url('img/user-hero.png')}}" class="img-circle elevation-2" alt="User Image">
                     @endif
                     </div>
                 
@@ -123,7 +123,7 @@
                         <span class="navbar-toggler-bar navbar-kebab"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <form action="/cari/@yield('header')" method="GET">
+                        <form action="/cari/@yield('cari')" method="GET">
                             <div class="input-group no-border">
                                 <input type="text" name="cari" value="{{ old('cari') }}" class="form-control" placeholder="Search Data @yield('header')">
                                 <div class="input-group-append">

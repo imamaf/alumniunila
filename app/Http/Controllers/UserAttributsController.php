@@ -43,6 +43,7 @@ class UserAttributsController extends Controller
      */
     public function AddUserAlumni(Request $request)
     { 
+        // UPDATE DATA ALUMNI
         $id = auth()->user()->id;
         $path = $request->file('path_foto')->store('foto_users');
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
@@ -69,6 +70,7 @@ class UserAttributsController extends Controller
             ]);
              return redirect('/alumni')->with('status' , 'Data berhasil di update');
        } else {
+           // TAMBAH DATA ALUMNI
             User::where('id' , $id)
             ->update([
                 'name' => $request->nama,
