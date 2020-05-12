@@ -38,6 +38,9 @@ Route::put('/add-alumni', 'UserAttributsController@addUserAlumni');
 //Delete data alumni
 Route::delete('/delete-user/{users_Attribut}', 'UserAttributsController@deleteUser');
 //Create jurusan
+
+Route::get('/update-jurusan/{id}', 'JurusanController@edit');
+
 Route::put('/add-data-jurusan', 'JurusanController@create');
 //Update data jurusan
 Route::put('/update-data-jurusan/{tbl_jurusan}', 'JurusanController@update');
@@ -49,3 +52,5 @@ Route::put('/update-password', 'UserController@updatePassword');
 Route::get('/laporan-pdf','AdminController@generatePDF');
 //search
 Route::get('/cari/{pathSearch}','AdminController@search');
+
+

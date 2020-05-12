@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Users_Attribut;
 use App\Tbl_jurusan;
+use Response;
 
 
 class JurusanController extends Controller
@@ -36,4 +37,11 @@ class JurusanController extends Controller
         $tbl_jurusan->delete();
         return redirect('/jurusan')->with('status' , 'Data berhasil dihapus');
     }
+
+    public function edit($id) {
+        $jurusans = DB::table('tbl_jurusans')->where('id', $id)->first();
+        // dd($jurusans);
+        return Response::json($jurusans);
+    }
+
 }
