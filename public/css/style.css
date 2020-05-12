@@ -212,3 +212,9 @@ body {
 .btn-delete i:hover {
     color: #ffffff;
 }
+
+.input-group-text {
+    padding: 0 !important;
+    background: gray !important;
+    color: white !important;
+}

@@ -52,7 +52,7 @@ Jurusan
                                     <td>{{$js->nama_jurusan}}</td>
                                     <td>{{$js->kode_jurusan}}</td>
                                     <td>{{$js->akreditas}}</td>
-                                    <td>{{$js->th_akreditas}}</td>
+                                    <td>{{substr($js->th_akreditas,0,4)}}</td>
                                     <td>
                                         <a href="#" class="btn btn-view"><i class="far fa-eye"></i><a>
                                         <a data-toggle="modal" data-target="#ModalUpdateData" href="#" class="btn btn-edit"><i class="far fa-edit"></i><a>
@@ -103,12 +103,23 @@ Jurusan
                             <input type="text" class="form-control" id="nama_jurusan" placeholder="Nama Jurusan/Prodi" name="nama_jurusan" value="{{$js->nama_jurusan}}">
                         </div>
                         <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="akreditas" placeholder="Akreditas" name="akreditas" value="{{$js->akreditas}}">
+                        <div class="form-group">
+                            <select class="form-control" placeholder="Akreditas" id="akreditas" name="akreditas" value="{{$js->akreditas}}?>">
+                            <option>lainnya</option>
+                            <option <?php echo $js->akreditas == 'A'? "selected" : "" ?>>A</option>
+                            <option <?php echo $js->akreditas == 'B'? "selected" : "" ?> >B</option>
+                            <option <?php echo $js->akreditas == 'C'? "selected" : "" ?>>C</option>
+
+                            </select>
+                        </div>
                         </div>
                         <div class="form-group">
-                           
-                            <input type="text" class="form-control" id="th_akreditas" placeholder="Tahun Akreditas" name="th_akreditas" value="{{$js->th_akreditas}}">
+                        <input type="text" class="form-control date" id="th_akreditas" placeholder="Tahub Akreditas" name="th_akreditas" value="<?php echo $users_attribut == null ? "" : substr($js->th_akreditas ,0,4)?>">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -142,13 +153,22 @@ Jurusan
                             
                             <input type="text" class="form-control" id="nama_jurusan" placeholder="Nama Jurusan/Prodi" name="nama_jurusan" value="">
                         </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="akreditas" placeholder="Akreditas" name="akreditas" value="">
+                        <div class="form-group">                            
+                        <select class="form-control" placeholder="Akreditas" id="akreditas" name="akreditas" value="">
+                            <option selected>lainnya</option>
+                            <option>A</option>
+                            <option>B</option>
+                            <option>C</option>
+
+                            </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" id="th_akreditas" placeholder="Tahun Akreditas" name="th_akreditas" value="">
-                            
+                        <input type="text" class="form-control date" id="th_akreditas" placeholder="Tahun Akreditas" name="th_akreditas" value="">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
                         </div>
                 </div>
                 <div class="modal-footer">

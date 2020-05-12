@@ -71,13 +71,13 @@
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Masuk</label>
                             <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->th_masuk}}">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{substr($users_attribut->th_masuk,0,4)}}">
                             </div>
                         </div>
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Lulus</label>
                             <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->th_lulus}}">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{substr($users_attribut->th_lulus,0,4)}}">
                             </div>
                         </div>
                         <div class="form-group row">
@@ -95,7 +95,7 @@
                         <div class="form-group row">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Waktu Lulus Kerja</label>
                             <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="inputPassword" value="{{$users_attribut->waktu_lulus_bekerja}}">
+                            <input type="text" readonly class="form-control" id="inputPassword" value="{{substr($users_attribut->waktu_lulus_bekerja,0,4)}}">
                             </div>
                         </div>
                     </form>

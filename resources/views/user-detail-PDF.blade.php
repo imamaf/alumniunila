@@ -30,11 +30,11 @@
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="tahun_masuk" placeholder="tahun masuk" name="th_masuk" value="{{$users_attribut->th_masuk}}">
+                            <input type="text" class="form-control" id="tahun_masuk" placeholder="tahun masuk" name="th_masuk" value="{{substr($users_attribut->th_masuk,0,4)}}">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="tahun_lulus" placeholder="tahun lulus" name="th_lulus" value="{{$users_attribut->th_lulus}}">
+                            <input type="text" class="form-control" id="tahun_lulus" placeholder="tahun lulus" name="th_lulus" value="{{substr($users_attribut->th_lulus,0,4)}}">
                         </div>
                         <div class="form-group">
                             
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="status" placeholder="waktu lulus kerja" name="waktu_lulus_bekerja" value="{{$users_attribut->waktu_lulus_bekerja}}">
+                            <input type="text" class="form-control" id="status" placeholder="waktu lulus kerja" name="waktu_lulus_bekerja" value="{{substr($users_attribut->waktu_lulus_bekerja,0,4)}}">
                         </div>
                 </div>
 

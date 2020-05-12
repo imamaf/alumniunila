@@ -16,7 +16,7 @@ class JurusanController extends Controller
             'nama_jurusan' => $request->nama_jurusan,
             'kode_jurusan' => $request->kode_jurusan,
             'akreditas' => $request->akreditas,
-            'th_akreditas' => $request->th_akreditas,
+            'th_akreditas' => $request->th_akreditas.'-01-01',
         ]);
         return redirect('/jurusan')->with('status' , 'Data berhasil ditambahkan');
     }
@@ -27,7 +27,7 @@ class JurusanController extends Controller
             'nama_jurusan' => $request->nama_jurusan,
             'kode_jurusan' => $request->kode_jurusan,
             'akreditas' => $request->akreditas,
-            'th_akreditas' => $request->th_akreditas,
+            'th_akreditas' => $request->th_akreditas.'-01-01',
         ]);
         return redirect('/jurusan')->with('status' , 'Data berhasil di update');
     }

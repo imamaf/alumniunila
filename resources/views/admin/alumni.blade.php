@@ -129,28 +129,28 @@ Alumni
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="{{ Auth::user()->name }}">
+                            <input type="text" class="form-control" id="nama" placeholder="Nama" name="nama" value="{{ Auth::user()->name }}">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="tempat_lahir" placeholder="tempat lahir" name="tempat_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_lahir?>">
+                            <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat lahir" name="tempat_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_lahir?>">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control date" id="tgl_lahir" placeholder="tanggal lahir" name="tgl_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tgl_lahir?>">
+                            <input type="text" class="form-control date" id="tgl_lahir" placeholder="Tanggal lahir" name="tgl_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tgl_lahir?>">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
-                                format: 'mm-dd-yyyy'
+                                format: 'yyyy-mm-dd'
                                 });  
                             </script>
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="alamat" placeholder="alamat" name="alamat" value="<?php echo $users_attribut == null ? "" : $users_attribut->alamat  ?>">
+                            <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="<?php echo $users_attribut == null ? "" : $users_attribut->alamat  ?>">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="no_hp" placeholder="no.handphone" name="no_hp" value="<?php echo $users_attribut == null ? "" : $users_attribut->no_hp  ?>">
+                            <input type="text" class="form-control" id="no_hp" placeholder="No.handphone" name="no_hp" value="<?php echo $users_attribut == null ? "" : $users_attribut->no_hp  ?>">
                         </div>
                         <div class="form-group">
                             <select class="form-control" placeholder="Jurusan" id="exampleFormControlSelect1" name="jurusan_prodi" value="<?php echo $users_attribut == null ? "" : $users_attribut->jurusan_prodi ?>">
@@ -161,12 +161,20 @@ Alumni
                             </select>
                         </div>
                         <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="th_masuk" placeholder="tahun masuk" name="th_masuk" value="<?php echo $users_attribut == null ? "" : $users_attribut->th_masuk  ?>">
+                        <input type="text" class="form-control date" id="th_masuk" placeholder="Tahun Masuk" name="th_masuk" value="<?php echo $users_attribut == null ? "" :substr($users_attribut->th_masuk,0,4)?>">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
                         </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="th_lulus" placeholder="tahun lulus" name="th_lulus" value="<?php echo $users_attribut == null ? "" : $users_attribut->th_lulus  ?>">
+                        <div class="form-group">                          
+                        <input type="text" class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="<?php echo $users_attribut == null ? "" : substr($users_attribut->th_lulus,0,4)?>">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
                         </div>
                         <div class="form-group">
                             
@@ -177,9 +185,14 @@ Alumni
                             <input type="text" class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_bekerja ?>">
                         </div>
                         <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="waktu_lulus_bekerja" placeholder="waktu lulus kerja" name="waktu_lulus_bekerja" value="<?php echo $users_attribut == null ? "" : $users_attribut->waktu_lulus_bekerja  ?>">
+                        <input type="text" class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="<?php echo $users_attribut == null ? "" : substr($users_attribut->waktu_lulus_bekerja ,0,4)?>">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
                         </div>
+                        
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
