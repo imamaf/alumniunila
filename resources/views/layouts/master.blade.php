@@ -17,6 +17,10 @@
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="../assets/demo/demo.css" rel="stylesheet" />
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
 </head>
 
 <body class="">
@@ -24,7 +28,7 @@
         <div class="sidebar" data-color="blue"><!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
             <div class="logo" style="display: flex">
                 <img src="{{url('img/logo-unila.png')}}" alt="Logo" width="45">
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal" style="font-size: 15px">
+                <a href="#" class="simple-text logo-normal" style="font-size: 15px">
                     Universitas Lampung
                 </a>
             </div>

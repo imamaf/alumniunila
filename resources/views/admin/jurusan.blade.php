@@ -131,7 +131,7 @@ Jurusan
                     </button>
                 </div>
                 <div class="modal-body">
-                <form clas="form-modal" action= "{{url('/add-data-jurusan')}}" method="POST" enctype="multipart/form-data">
+                    <form clas="form-modal" action= "{{url('/add-data-jurusan')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                         <div class="form-group">
@@ -147,8 +147,8 @@ Jurusan
                             <input type="text" class="form-control" id="akreditas" placeholder="Akreditas" name="akreditas" value="">
                         </div>
                         <div class="form-group">
-                           
                             <input type="text" class="form-control" id="th_akreditas" placeholder="Tahun Akreditas" name="th_akreditas" value="">
+                            
                         </div>
                 </div>
                 <div class="modal-footer">
