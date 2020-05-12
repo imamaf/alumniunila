@@ -137,10 +137,15 @@ Alumni
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="tgl_lahir" placeholder="tanggal lahir" name="tgl_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tgl_lahir?>">
+                            <input type="text" class="form-control date" id="tgl_lahir" placeholder="tanggal lahir" name="tgl_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tgl_lahir?>">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: 'mm-dd-yyyy'
+                                });  
+                            </script>
                         </div>
                         <div class="form-group">
-                           
+                            
                             <input type="text" class="form-control" id="alamat" placeholder="alamat" name="alamat" value="<?php echo $users_attribut == null ? "" : $users_attribut->alamat  ?>">
                         </div>
                         <div class="form-group">
@@ -187,7 +192,7 @@ Alumni
 
 
 
-    <div class="modal fade" id="ModalDetailAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="ModalDetailAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -274,7 +279,7 @@ Alumni
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </section>
 @endsection
 @section('scripts')
