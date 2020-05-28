@@ -33,14 +33,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/detail-user', 'AdminController@detailUser');
 //show Detail User
 Route::get('/detail/{id}', 'UserAttributsController@show');
+// --------------------------------- ROUTING ALUMNI ------------------
 //Create dan Delete DataAlumni
 Route::put('/add-alumni', 'UserAttributsController@addUserAlumni');
+
+// Get Alumni By ID
+Route::get('/getAlumniById/{id}', 'UserAttributsController@getAlumniById');
+
 //Delete data alumni
 Route::delete('/delete-user/{users_Attribut}', 'UserAttributsController@deleteUser');
-//Create jurusan
 
+// --------------------------------- ROUTING JURUSAN ---------------
 Route::get('/update-jurusan/{id}', 'JurusanController@edit');
-
+// Get Jurusan By ID
+Route::get('/getJurusanById/{id}', 'JurusanController@getJurusanById');
+// Create Data Jurusan
 Route::put('/add-data-jurusan', 'JurusanController@create');
 //Update data jurusan
 Route::put('/update-data-jurusan/{tbl_jurusan}', 'JurusanController@update');
