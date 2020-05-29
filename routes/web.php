@@ -59,5 +59,7 @@ Route::put('/update-password', 'UserController@updatePassword');
 Route::get('/laporan-pdf','AdminController@generatePDF');
 //search
 Route::get('/cari/{pathSearch}','AdminController@search');
+// view PDF
+Route::get('/viewPDF','AdminController@viewPDF');
 
 

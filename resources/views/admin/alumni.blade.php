@@ -120,20 +120,13 @@ Alumni
                             </span>
                             <input type="text" class="form-control" readonly>
                         </div>
-                        @if($users_attribut != null)
-                        <img src="" class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
-                        @endif
-                        @if($users_attribut == null)
                         <img class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
-                        @endif
+                        </div>
+                        <div class="form-group">    
+                            <input type="text" required class="form-control" id="nama" placeholder="Nama" name="nama" value="">
                         </div>
                         <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="nama" placeholder="Nama" name="nama" value="">
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat lahir" name="tempat_lahir" value="">
+                            <input type="text" required class="form-control" id="tempat_lahir" placeholder="Tempat lahir" name="tempat_lahir" value="">
                         </div>
                         <div class="form-group">
                             
@@ -144,12 +137,10 @@ Alumni
                                 });  
                             </script>
                         </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="">
+                        <div class="form-group">  
+                            <input type="text" required class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="">
                         </div>
                         <div class="form-group">
-                            
                             <input type="text" class="form-control" id="no_hp" placeholder="No.handphone" name="no_hp" value="">
                         </div>
                         <div class="form-group">
@@ -177,12 +168,10 @@ Alumni
                             </script>
                         </div>
                         <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="status" placeholder="status" name="status" value="">
+                            <input type="text" required class="form-control" id="status" placeholder="status" name="status" value="">
                         </div>
                         <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="">
+                            <input type="text" required class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="">
                         </div>
                         <div class="form-group">
                         <input type="text" class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
@@ -192,7 +181,6 @@ Alumni
                                 });  
                             </script>
                         </div>
-                        
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
@@ -222,29 +210,24 @@ Alumni
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <span class="btn btn-default btn-file">
-                                    Browse… <input type="file" id="imgInp" name="path_foto" class="custom-file-input" required>
+                                    Browse… <input type="file" id="imgInp2" name="path_foto" class="custom-file-input" required>
                                 </span>
                             </span>
                             <input type="text" class="form-control" readonly>
                         </div>
-                        @if($users_attribut != null)
-                        <img src="" class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
-                        @endif
-                        @if($users_attribut == null)
-                        <img class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
-                        @endif
+                        <img class="img-thumbnail"  id='img-upload2' style="width : 150px; heigth: 150px"/>
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="nama" placeholder="Nama" name="nama" value="">
+                            <input type="text" class="form-control" id="nama_update" placeholder="Nama" name="nama" value="">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat lahir" name="tempat_lahir" value="">
+                            <input type="text" class="form-control" id="tempat_lahir_update" placeholder="Tempat lahir" name="tempat_lahir" value="">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control date" id="tgl_lahir" placeholder="Tanggal lahir" name="tgl_lahir" value="">
+                            <input type="text" class="form-control date" id="tgl_lahir_update" placeholder="Tanggal lahir" name="tgl_lahir" value="">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: 'yyyy-mm-dd'
@@ -253,14 +236,14 @@ Alumni
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="">
+                            <input type="text" class="form-control" id="alamat_update" placeholder="Alamat" name="alamat" value="">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="no_hp" placeholder="No.handphone" name="no_hp" value="">
+                            <input type="text" class="form-control" id="no_hp_update" placeholder="No.handphone" name="no_hp" value="">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" placeholder="Jurusan" id="exampleFormControlSelect1" name="jurusan_prodi" value="">
+                            <select class="form-control" placeholder="Jurusan" id="jurusan_prodi_update" name="jurusan_prodi" value="">
                             <option>lainnya</option>
                             @foreach($jurusans as $js)
                             <?php echo $users_attribut != null && $users_attribut->jurusan_prodi  === $js->nama_jurusan ? "<option selected> $users_attribut->jurusan_prodi</option>" : "<option> $js->nama_jurusan</option>" ?>
@@ -268,7 +251,7 @@ Alumni
                             </select>
                         </div>
                         <div class="form-group">
-                        <input type="text" class="form-control date" id="th_masuk" placeholder="Tahun Masuk" name="th_masuk" value="">
+                        <input type="text" class="form-control date" id="th_masuk_update" placeholder="Tahun Masuk" name="th_masuk" value="">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -276,7 +259,7 @@ Alumni
                             </script>
                         </div>
                         <div class="form-group">                          
-                        <input type="text" class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="">
+                        <input type="text" class="form-control date" id="th_lulus_update" placeholder="Tahun Lulus" name="th_lulus" value="">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -285,14 +268,14 @@ Alumni
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="status" placeholder="status" name="status" value="">
+                            <input type="text" class="form-control" id="status_update" placeholder="status" name="status" value="">
                         </div>
                         <div class="form-group">
                             
-                            <input type="text" class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="">
+                            <input type="text" class="form-control" id="tempat_bekerja_update" placeholder="tempat bekerja" name="tempat_bekerja" value="">
                         </div>
                         <div class="form-group">
-                        <input type="text" class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
+                        <input type="text" class="form-control date" id="waktu_lulus_bekerja_update" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -410,19 +393,21 @@ $(document).ready(function(){
             $.get(url + '/' + tour_id, function(data) {
                 //success data
                 console.log('data : ', data);
+                console.log('data img-upload2 : ', $('#img-upload2'));
                 $('#action').attr('action' , '/update-data-jurusan/' + tour_id);
-                $('#alamat').val(data.alamat);
-                $('#jenis_kelamin').val(data.jenis_kelamin);
-                $('#jurusan_prodi').val(data.jurusan_prodi);
-                $('#nama').val(data.nama);
-                $('#no_hp').val(data.no_hp);
-                $('#status').val(data.status);
-                $('#tempat_bekerja').val(data.tempat_bekerja);
-                $('#tempat_lahir').val(data.tempat_lahir);
-                $('#tgl_lahir').val(data.tgl_lahir);
-                $('#th_lulus').val(data.th_lulus.substring(0,4));
-                $('#th_masuk').val(data.th_masuk.substring(0,4));
-                $('#waktu_lulus_bekerja').val(data.waktu_lulus_bekerja.substring(0,4));
+                $('#alamat_update').val(data.alamat);
+                document.getElementById("img-upload2").src="storage/" + data.path_foto;
+                $('#jenis_kelamin_update').val(data.jenis_kelamin);
+                $('#jurusan_prodi_update').val(data.jurusan_prodi);
+                $('#nama_update').val(data.nama);
+                $('#no_hp_update').val(data.no_hp);
+                $('#status_update').val(data.status);
+                $('#tempat_bekerja_update').val(data.tempat_bekerja);
+                $('#tempat_lahir_update').val(data.tempat_lahir);
+                $('#tgl_lahir_update').val(data.tgl_lahir);
+                $('#th_lulus_update').val(data.th_lulus.substring(0,4));
+                $('#th_masuk_update').val(data.th_masuk.substring(0,4));
+                $('#waktu_lulus_bekerja_update').val(data.waktu_lulus_bekerja.substring(0,4));
                 $('#btn-save').val("update");
                 $('#modalEdit').modal('show');
             })
@@ -450,6 +435,39 @@ $(document).ready(function(){
                 $('#ModalView').modal('show');
             })
         });
+        $(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload2').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp2").change(function(){
+		    readURL(this);
+		}); 
     });
 </script>
 

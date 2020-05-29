@@ -196,19 +196,19 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group row">
-                    <label for="old_password" class="col-md-2 col-form-label">{{ __('Current password') }}</label>
+                    <label for="old_password" class="col-md-2 col-form-label">{{ __('Password Lama') }}</label>
                     <div class="col-md-6">
                         <input id="old_password" name="old_password" type="password" class="form-control" required  value="" autofocus>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="new_password" class="col-md-2 col-form-label">{{ __('New password') }}</label>
+                    <label for="new_password" class="col-md-2 col-form-label">{{ __('Password Baru') }}</label>
                     <div class="col-md-6">
                         <input id="new_password" name="new_password" type="password" class="form-control"   value="" required autofocus>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="password_confirm" class="col-md-2 col-form-label">{{ __('Confirm password') }}</label>
+                    <label for="password_confirm" class="col-md-2 col-form-label">{{ __('Konfirmasi Password') }}</label>
 
                     <div class="col-md-6">
                         <input id="password_confirm" name="password_confirm" type="password" class="form-control"  value=""  required
@@ -219,9 +219,9 @@
                 <div class="form-group login-row row mb-0">
                     <div class="col-md-8 offset-md-2">
                         <button id="btn" type="submit" class="btn btn-primary">
-                            {{ __('Submit') }}
+                            {{ __('Simpan') }}
                         </button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
 

@@ -66,7 +66,6 @@ class AdminController extends Controller
     }
 
     public function generatePDF()
-
     {
         $data = ['title' => 'Welcome to belajarphp.net'];
 
@@ -75,6 +74,12 @@ class AdminController extends Controller
 
         $pdf = PDF::loadView('user-detail-PDF', ['users_attribut' => $users_attribut]);
         return $pdf->download('laporan-pdf.pdf');
+    }
+    public function viewPDF()
+    {
+        $id = auth()->user()->id;
+        $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
+        return view('user-detail-PDF' , ['users_attribut' => $users_attribut]);
     }
 
     public function search(Request $request , string $pathSearch){
@@ -85,15 +90,16 @@ class AdminController extends Controller
         if($pathSearch == 'Alumni'){
             $users_attributAll = DB::table('users_attributs')->where('nama','ILIKE' ,"%".strtolower($cari)."%")
             ->paginate(5);
+            $jurusans = Tbl_jurusan::select('nama_jurusan')->get();
             if($cari != '') {
                 if(count($users_attributAll) == 0) {
                     //MESSAGE
                     return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll])->with('notFound','Data Tidak ditemukan');
                 }
-                return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll]);
+                return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll , 'jurusans' => $jurusans]);
             } else {
                 $users_attributAll = Users_Attribut::latest()->paginate(5);
-                return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll]);
+                return view('admin.alumni',['users_attribut'=> $users_attribut , 'users_attributAll'=> $users_attributAll , 'jurusans'=> $jurusans]);
             }   
         } else {
             // SEACRH DATA JURUSAN/PRODI
