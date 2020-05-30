@@ -44,4 +44,11 @@ class JurusanController extends Controller
         return Response::json($jurusans);
     }
 
+    // GET JURUSAN BY ID
+    public function getJurusanById(Request $request)
+    {
+        $data = Tbl_jurusan::find($request->id);
+        return $data;
+    }
+
 }

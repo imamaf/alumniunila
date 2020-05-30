@@ -43,7 +43,6 @@ class UserAttributsController extends Controller
      */
     public function AddUserAlumni(Request $request)
     { 
-        $parse = $request->nama;
         // UPDATE DATA ALUMNI
         $id = auth()->user()->id;
         $path = $request->file('path_foto')->store('foto_users');
@@ -69,7 +68,11 @@ class UserAttributsController extends Controller
                 'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja.'-01-01',
                 'path_foto' =>$path,
             ]);
-             return redirect('/alumni')->with('status' , 'Data berhasil di update');
+            if($request->detailUser == 'detailUser') {
+                return redirect('/detail-user')->with('status' , 'Data berhasil di update');
+            } else {
+                return redirect('/alumni')->with('status' , 'Data berhasil di update');
+            }
        } else {
            // TAMBAH DATA ALUMNI
             User::where('id' , $id)
@@ -85,15 +88,14 @@ class UserAttributsController extends Controller
                 'tgl_lahir' => $request->tgl_lahir,
                 'alamat' => $request->alamat,
                 'jurusan_prodi' => $request->jurusan_prodi,
-                'th_masuk' => $request->th_masuk,
-                'th_lulus' => $request->th_lulus,
+                'th_masuk' => $request->th_masuk.'-01-01',
+                'th_lulus' => $request->th_lulus.'-01-01',
                 'tempat_bekerja' => $request->tempat_bekerja,
-                'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja,
+                'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja.'-01-01',
                 'path_foto' =>$path,
             ]);
             return redirect('/alumni')->with('status' , 'Data berhasil ditambahkan');
        }
-        //  view('admin/dashboard' );
     }
 
     /**
@@ -161,4 +163,11 @@ class UserAttributsController extends Controller
         return redirect('/alumni')->with('status' , 'Data berhasil dihapus');
         //
     }
+
+        // GET DATA Alumni BY ID
+        public function getAlumniById(Request $request)
+        {
+            $data = Users_Attribut::find($request->id);
+            return $data;
+        }
 }

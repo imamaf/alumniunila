@@ -201,19 +201,19 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group row">
-                    <label for="old_password" class="col-md-2 col-form-label">{{ __('Current password') }}</label>
+                    <label for="old_password" class="col-md-2 col-form-label">{{ __('Password Lama') }}</label>
                     <div class="col-md-6">
                         <input id="old_password" name="old_password" type="password" class="form-control" required  value="" autofocus>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="new_password" class="col-md-2 col-form-label">{{ __('New password') }}</label>
+                    <label for="new_password" class="col-md-2 col-form-label">{{ __('Password Baru') }}</label>
                     <div class="col-md-6">
                         <input id="new_password" name="new_password" type="password" class="form-control"   value="" required autofocus>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="password_confirm" class="col-md-2 col-form-label">{{ __('Confirm password') }}</label>
+                    <label for="password_confirm" class="col-md-2 col-form-label">{{ __('Konfirmasi Password') }}</label>
 
                     <div class="col-md-6">
                         <input id="password_confirm" name="password_confirm" type="password" class="form-control"  value=""  required
@@ -224,9 +224,9 @@
                 <div class="form-group login-row row mb-0">
                     <div class="col-md-8 offset-md-2">
                         <button id="btn" type="submit" class="btn btn-primary">
-                            {{ __('Submit') }}
+                            {{ __('Simpan') }}
                         </button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
                     </div>
                 </div>
 
@@ -271,11 +271,8 @@
     <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
     <script src="../assets/demo/demo.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+ 
     
-        <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
     <script>
     $('#new_password, #password_confirm').on('keyup', function () {
     if ($('#new_password').val() == $('#password_confirm').val()) {
@@ -336,9 +333,7 @@ $(document).ready( function() {
 		}); 	
 	});
 </script>
-</script>
-
     @yield('scripts')
-</body>
 
+</body>
 </html>
