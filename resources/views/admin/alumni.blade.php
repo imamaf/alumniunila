@@ -134,7 +134,7 @@ Alumni
                         <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat lahir" name="tempat_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_lahir?>">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control date" id="tgl_lahir" placeholder="Tanggal lahir" name="tgl_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tgl_lahir?>">
+                        <input type="text" class="form-control date" id="tgl_lahir" placeholder="Tanggal lahir" name="tgl_lahir" value="">
                         <script type="text/javascript">
                             $('.date').datepicker({  
                             format: 'yyyy-mm-dd'
@@ -142,13 +142,13 @@ Alumni
                         </script>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="<?php echo $users_attribut == null ? "" : $users_attribut->alamat  ?>">
+                        <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="no_hp" placeholder="No.handphone" name="no_hp" value="<?php echo $users_attribut == null ? "" : $users_attribut->no_hp  ?>">
+                        <input type="text" class="form-control" id="no_hp" placeholder="No.handphone" name="no_hp" value="">
                     </div>
                     <div class="form-group">
-                        <select class="form-control" placeholder="Jurusan" id="exampleFormControlSelect1" name="jurusan_prodi" value="<?php echo $users_attribut == null ? "" : $users_attribut->jurusan_prodi ?>">
+                        <select class="form-control" placeholder="Jurusan" id="exampleFormControlSelect1" name="jurusan_prodi" value="">
                             <option>lainnya</option>
                             @foreach($jurusans as $js)
                             <?php echo $users_attribut != null && $users_attribut->jurusan_prodi  === $js->nama_jurusan ? "<option selected> $users_attribut->jurusan_prodi</option>" : "<option> $js->nama_jurusan</option>" ?>
@@ -156,7 +156,7 @@ Alumni
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control date" id="th_masuk" placeholder="Tahun Masuk" name="th_masuk" value="<?php echo $users_attribut == null ? "" :substr($users_attribut->th_masuk,0,4)?>">
+                        <input type="text" class="form-control date" id="th_masuk" placeholder="Tahun Masuk" name="th_masuk" value="">
                         <script type="text/javascript">
                             $('.date').datepicker({  
                             format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -164,7 +164,7 @@ Alumni
                         </script>
                     </div>
                     <div class="form-group">                          
-                        <input type="text" class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="<?php echo $users_attribut == null ? "" : substr($users_attribut->th_lulus,0,4)?>">
+                        <input type="text" class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="">
                         <script type="text/javascript">
                             $('.date').datepicker({  
                             format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -172,13 +172,13 @@ Alumni
                         </script>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="status" placeholder="status" name="status" value="<?php echo $users_attribut == null ? "" : $users_attribut->status  ?>">
+                        <input type="text" class="form-control" id="status" placeholder="status" name="status" value="">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_bekerja ?>">
+                        <input type="text" class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="<?php echo $users_attribut == null ? "" : substr($users_attribut->waktu_lulus_bekerja ,0,4)?>">
+                        <input type="text" class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
                         <script type="text/javascript">
                             $('.date').datepicker({  
                             format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -216,9 +216,76 @@ Alumni
                                 </div>
                             </li>
                             <li>Kapan anda mulai mencari pekerjaan?</li>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Sebelum Wisuda</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Sesudah Wisuda</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Saya tidak mencari pekerjaan</label>
+                                </div>
+                               
                             <li>Bagaimana anda mencari pekerjaan tersebut</li>
+                            <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Membangun Bisnis sendiri</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Melalui iklan koran/majalah</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Pergi ke bursa/pameran kerja</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Mencari leat internet</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Dihubungi oleh perusahaan</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Menghubungi Kemnakerstrans</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Menghubungi agent tenaga kerja</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Memproleh informasi dari kantor pengembangan karis fakultas dan Universitas</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Menghubungi kantor kemahasiswaan / alumni</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Membangun jaringan sejak masaa kuliah</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Melalui relasi (keluarga, teman , dosen dll</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Melalui penempatan kerja / magang</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <label class="form-check-label">Bekerja ditempat yang sama semasa kuliah</label>
+                                </div>
                             <li>Kapan anda memperoleh pekerjaan pertama</li>
+                            <input type="text" class="form-control" id="tempat_bekerja" placeholder="Silahkan diisi" name="tempat_bekerja" value="">
                             <li>Apakah saat ini anda bekerja/berwirausaha</li>
+                            <input type="text" class="form-control" id="tempat_bekerja" placeholder="Silahkan diisi" name="tempat_bekerja" value="">
                         </ol>
                     </div>
                 </div>
