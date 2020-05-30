@@ -23,7 +23,7 @@ Alumni
                    @if ($users_attribut === null)
  
                     <div class="tambah" style="margin-left: auto;">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAdd">Tambah Data Alumni </button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Tambah Data Alumni </button>
                     </div>
                     @endif
                 </div>
@@ -97,298 +97,8 @@ Alumni
 @endsection
  @include('layouts.alert-modal')
 <!-- end alert -->
-<<<<<<< HEAD
-<!-- Modall -->
-    <!-- <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-=======
 <!-- Modal Tambah -->
-<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
->>>>>>> fd25350def5777179b5ef3e8e8b12e4e577a5313
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <form action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-                    <div class="form-group">
-                        <label>Upload Image</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <span class="btn btn-default btn-file">
-                                    Browse… <input type="file" id="imgInp" name="path_foto" class="custom-file-input" required>
-                                </span>
-                            </span>
-                            <input type="text" class="form-control" readonly>
-                        </div>
-                        <img class="img-thumbnail"  id='img-upload' style="width : 150px; heigth: 150px"/>
-                        </div>
-                        <div class="form-group">    
-                            <input type="text" required class="form-control" id="nama" placeholder="Nama" name="nama" value="">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" required class="form-control" id="tempat_lahir" placeholder="Tempat lahir" name="tempat_lahir" value="">
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control date" id="tgl_lahir" placeholder="Tanggal lahir" name="tgl_lahir" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: 'yyyy-mm-dd'
-                                });  
-                            </script>
-                        </div>
-                        <div class="form-group">  
-                            <input type="text" required class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="no_hp" placeholder="No.handphone" name="no_hp" value="">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" placeholder="Jurusan" id="exampleFormControlSelect1" name="jurusan_prodi" value="">
-                            <option>lainnya</option>
-                            @foreach($jurusans as $js)
-                            <?php echo $users_attribut != null && $users_attribut->jurusan_prodi  === $js->nama_jurusan ? "<option selected> $users_attribut->jurusan_prodi</option>" : "<option> $js->nama_jurusan</option>" ?>
-                            @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                        <input type="text" class="form-control date" id="th_masuk" placeholder="Tahun Masuk" name="th_masuk" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: "yyyy", viewMode: "years", minViewMode: "years",
-                                });  
-                            </script>
-                        </div>
-                        <div class="form-group">                          
-                        <input type="text" class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: "yyyy", viewMode: "years", minViewMode: "years",
-                                });  
-                            </script>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" required class="form-control" id="status" placeholder="status" name="status" value="">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" required class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="">
-                        </div>
-                        <div class="form-group">
-                        <input type="text" class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: "yyyy", viewMode: "years", minViewMode: "years",
-                                });  
-                            </script>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-<!-- Modall Update -->
-    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                <form action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
-                    <div class="form-group">
-                        <label>Upload Image</label>
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <span class="btn btn-default btn-file">
-                                    Browse… <input type="file" id="imgInp2" name="path_foto" class="custom-file-input" required>
-                                </span>
-                            </span>
-                            <input type="text" class="form-control" readonly>
-                        </div>
-                        <img class="img-thumbnail"  id='img-upload2' style="width : 150px; heigth: 150px"/>
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="nama_update" placeholder="Nama" name="nama" value="">
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="tempat_lahir_update" placeholder="Tempat lahir" name="tempat_lahir" value="">
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control date" id="tgl_lahir_update" placeholder="Tanggal lahir" name="tgl_lahir" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: 'yyyy-mm-dd'
-                                });  
-                            </script>
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="alamat_update" placeholder="Alamat" name="alamat" value="">
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="no_hp_update" placeholder="No.handphone" name="no_hp" value="">
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control" placeholder="Jurusan" id="jurusan_prodi_update" name="jurusan_prodi" value="">
-                            <option>lainnya</option>
-                            @foreach($jurusans as $js)
-                            <?php echo $users_attribut != null && $users_attribut->jurusan_prodi  === $js->nama_jurusan ? "<option selected> $users_attribut->jurusan_prodi</option>" : "<option> $js->nama_jurusan</option>" ?>
-                            @endforeach
-                            </select>
-                        </div>
-                        <div class="form-group">
-                        <input type="text" class="form-control date" id="th_masuk_update" placeholder="Tahun Masuk" name="th_masuk" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: "yyyy", viewMode: "years", minViewMode: "years",
-                                });  
-                            </script>
-                        </div>
-                        <div class="form-group">                          
-                        <input type="text" class="form-control date" id="th_lulus_update" placeholder="Tahun Lulus" name="th_lulus" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: "yyyy", viewMode: "years", minViewMode: "years",
-                                });  
-                            </script>
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="status_update" placeholder="status" name="status" value="">
-                        </div>
-                        <div class="form-group">
-                            
-                            <input type="text" class="form-control" id="tempat_bekerja_update" placeholder="tempat bekerja" name="tempat_bekerja" value="">
-                        </div>
-                        <div class="form-group">
-                        <input type="text" class="form-control date" id="waktu_lulus_bekerja_update" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: "yyyy", viewMode: "years", minViewMode: "years",
-                                });  
-                            </script>
-                        </div>
-                        
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                    <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-                </form>
-            </div>
-        </div>
-    </div> -->
-
-<!-- MODAL VIEW  -->
-    <div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Data Detail</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                    <div class="container-fluid">
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="nama_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Lahir</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="tempat_lahir_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Tangggal Lahir</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="tgl_lahir_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="alamat_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">No Hp</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="no_hp_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Jurusan</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="jurusan_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Masuk</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="th_masuk_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Lulus</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="th_lulus_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Status</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="status_view"  value=""> 
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Bekerja</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="tempat_bekerja_view" value="">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPassword" class="col-sm-2 col-form-label">Waktu Lulus Kerja</label>
-                            <div class="col-sm-10">
-                            <input type="text" readonly class="form-control" id="waktu_lulus_bekerja_view" value="">
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-<<<<<<< HEAD
-    </div> -->
-    
-    <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -524,6 +234,197 @@ Alumni
             </div>
         </div>
     </div>
+<!-- Modall Update -->
+    <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Update Data</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                <form action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('put')
+                    <div class="form-group">
+                        <label>Upload Image</label>
+                        <div class="input-group">
+                            <span class="input-group-btn">
+                                <span class="btn btn-default btn-file">
+                                    Browse… <input type="file" id="imgInp2" name="path_foto" class="custom-file-input" required>
+                                </span>
+                            </span>
+                            <input type="text" class="form-control" readonly>
+                        </div>
+                        <img class="img-thumbnail"  id='img-upload2' style="width : 150px; heigth: 150px"/>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="nama_update" placeholder="Nama" name="nama" value="">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="tempat_lahir_update" placeholder="Tempat lahir" name="tempat_lahir" value="">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control date" id="tgl_lahir_update" placeholder="Tanggal lahir" name="tgl_lahir" value="">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: 'yyyy-mm-dd'
+                                });  
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="alamat_update" placeholder="Alamat" name="alamat" value="">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="no_hp_update" placeholder="No.handphone" name="no_hp" value="">
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" placeholder="Jurusan" id="jurusan_prodi_update" name="jurusan_prodi" value="">
+                            <option>lainnya</option>
+                            @foreach($jurusans as $js)
+                            <?php echo $users_attribut != null && $users_attribut->jurusan_prodi  === $js->nama_jurusan ? "<option selected> $users_attribut->jurusan_prodi</option>" : "<option> $js->nama_jurusan</option>" ?>
+                            @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group">
+                        <input type="text" class="form-control date" id="th_masuk_update" placeholder="Tahun Masuk" name="th_masuk" value="">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
+                        </div>
+                        <div class="form-group">                          
+                        <input type="text" class="form-control date" id="th_lulus_update" placeholder="Tahun Lulus" name="th_lulus" value="">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="status_update" placeholder="status" name="status" value="">
+                        </div>
+                        <div class="form-group">
+                            
+                            <input type="text" class="form-control" id="tempat_bekerja_update" placeholder="tempat bekerja" name="tempat_bekerja" value="">
+                        </div>
+                        <div class="form-group">
+                        <input type="text" class="form-control date" id="waktu_lulus_bekerja_update" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
+                            <script type="text/javascript">
+                                $('.date').datepicker({  
+                                format: "yyyy", viewMode: "years", minViewMode: "years",
+                                });  
+                            </script>
+                        </div>
+                        
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<!-- MODAL VIEW  -->
+    <div class="modal fade" id="ModalView" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Data Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                    <div class="container-fluid">
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Nama</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="nama_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="tempat_lahir_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tangggal Lahir</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="tgl_lahir_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Alamat</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="alamat_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">No Hp</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="no_hp_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Jurusan</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="jurusan_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Masuk</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="th_masuk_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tahun Lulus</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="th_lulus_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Status</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="status_view"  value=""> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Tempat Bekerja</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="tempat_bekerja_view" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Waktu Lulus Kerja</label>
+                            <div class="col-sm-10">
+                            <input type="text" readonly class="form-control" id="waktu_lulus_bekerja_view" value="">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ 
     <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../assets/js/modal-steps.min.js"></script>
@@ -545,9 +446,6 @@ Alumni
 
     </script>
 
-=======
-    </div>
->>>>>>> fd25350def5777179b5ef3e8e8b12e4e577a5313
 </section>
 @endsection
 @section('scripts')
