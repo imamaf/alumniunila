@@ -6,7 +6,7 @@
 @endsection
 
 @section('header')
-    Alumni
+Detail Data
 @endsection
 
 @section('content')
@@ -33,7 +33,8 @@
                             <button class="btn btn-primary">
                             <a href="{{url('/laporan-pdf')}}" style="color:white;">Cetak </a>
                              </button>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Edit </button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Edit Profil </button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit Password </button>
                         </div>
                     </div>      
                     <form>
@@ -150,7 +151,7 @@
                             <input type="text" required class="form-control" id="tempat_lahir" placeholder="tempat lahir" name="tempat_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_lahir?>">
                         </div>
                         <div class="form-group">
-                            <input type="text" required class="form-control date" id="tgl_lahir" placeholder="Tanggal Lahir" name="tgl_lahir" value="{{$users_attribut->tgl_lahir == null ? : $users_attribut->tgl_lahir }}">
+                            <input type="text" required class="form-control date" id="tgl_lahir" placeholder="Tanggal Lahir" name="tgl_lahir" value="{{$users_attribut == null ? : $users_attribut->tgl_lahir }}">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: 'yyyy-mm-dd'
@@ -167,7 +168,7 @@
                             <input type="text" required class="form-control" id="jurusan_prodi" placeholder="Jurusan" name="jurusan_prodi" value="<?php echo $users_attribut == null ? "" : $users_attribut->jurusan_prodi  ?>">
                         </div>
                         <div class="form-group">
-                        <input type="text" required class="form-control date" id="th_masuk" placeholder="Tahun Masuk" name="th_masuk" value="{{$users_attribut->th_masuk == null ? : substr($users_attribut->th_masuk , 0 , 4) }}">
+                        <input type="text" required class="form-control date" id="th_masuk" placeholder="Tahun Masuk" name="th_masuk" value="{{$users_attribut == null ? : substr($users_attribut->th_masuk , 0 , 4) }}">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -175,7 +176,7 @@
                             </script>
                         </div>
                         <div class="form-group">
-                        <input type="text" required class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="{{$users_attribut->th_lulus == null ? : substr($users_attribut->th_lulus , 0 , 4) }}">
+                        <input type="text" required class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="{{$users_attribut == null ? : substr($users_attribut->th_lulus , 0 , 4) }}">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
@@ -189,7 +190,7 @@
                             <input type="text" required class="form-control" id="tempat_bekerja" placeholder="Tempat Bekerja" name="tempat_bekerja" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_bekerja ?>">
                         </div>
                         <div class="form-group">
-                        <input type="text" required class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Kerja" name="waktu_lulus_bekerja" value="{{$users_attribut->waktu_lulus_bekerja == null ? : substr($users_attribut->waktu_lulus_bekerja , 0 , 4) }}">
+                        <input type="text" required class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Kerja" name="waktu_lulus_bekerja" value="{{$users_attribut == null ? : substr($users_attribut->waktu_lulus_bekerja , 0 , 4) }}">
                             <script type="text/javascript">
                                 $('.date').datepicker({  
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
