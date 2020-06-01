@@ -10,7 +10,7 @@ Dashboard
 @endsection
 
 @section('content')
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
@@ -44,6 +44,106 @@ Dashboard
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="content">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Dashboard</h4>
+                        <hr>
+                        <div class="card-info">
+                            <div class="kotak">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Alumni</h4>
+                        <hr>
+                        <div class="card-info">
+                            <div class="kotak">
+                                <i class="fas fa-user-graduate"></i>
+                            </div>
+                            <div class="summary">
+                                <h1>100</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Jurusan/Prodi</h4>
+                        <hr>
+                        <div class="card-info">
+                            <div class="kotak">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="summary">
+                                <h1>2</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Bekerja</h4>
+                        <hr>
+                        <div class="card-info">
+                            <div class="kotak">
+                                <i class="far fa-building"></i>
+                            </div>
+                            <div class="summary">
+                                <h1>75</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Belum Bekerja</h4>
+                        <hr>
+                        <div class="card-info">
+                            <div class="kotak">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="summary">
+                                <h1>10</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h4 class="card-title">Melanjutkan Studi</h4>
+                        <hr>
+                        <div class="card-info">
+                            <div class="kotak">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="summary">
+                                <h1>15</h1>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
