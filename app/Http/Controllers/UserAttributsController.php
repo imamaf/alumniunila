@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Users_Attribut;
 use App\User;
+use App\Tbl_kusioner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -79,7 +80,6 @@ class UserAttributsController extends Controller
             ->update([
                 'name' => $request->nama,
             ]);
-            dd($request);
             Users_Attribut::create([
                 'id' => $id, 
                 'nama' => $request->nama,
@@ -94,6 +94,38 @@ class UserAttributsController extends Controller
                 'tempat_bekerja' => $request->tempat_bekerja,
                 'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja.'-01-01',
                 'path_foto' =>$path,
+            ]);
+            Tbl_kusioner::create([
+                'user_id' => $id,
+                'pertanyaan_1' => $request->pertanyaan_1 ,
+                'pertanyaan_2' => $request->pertanyaan_2,
+                'pertanyaan_3' => $request->pertanyaan_3,
+                'pertanyaan_4' => $request->pertanyaan_4,
+                'pertanyaan_5' => $request->pertanyaan_5,
+                'pertanyaan_6' => $request->pertanyaan_6,
+                'pertanyaan_7' => $request->pertanyaan_7,
+                'pertanyaan_8' => $request->pertanyaan_8,
+                'pertanyaan_9' => $request->pertanyaan_9,
+                'pertanyaan_10' => $request->pertanyaan_10,
+                'pertanyaan_11' => $request->pertanyaan_11,
+                'pertanyaan_12' => $request->pertanyaan_12,
+                'pertanyaan_13' => $request->pertanyaan_13,
+                'pertanyaan_14' => $request->pertanyaan_14,
+                'pertanyaan_15' => $request->pertanyaan_15,
+                'pertanyaan_16' => $request->pertanyaan_16,
+                'pertanyaan_17' => $request->pertanyaan_17,
+                'pertanyaan_18' => $request->pertanyaan_18,
+                'pertanyaan_19' => $request->pertanyaan_19,
+                'pertanyaan_20' => $request->pertanyaan_20,
+                'pertanyaan_21' => $request->pertanyaan_21,
+                'pertanyaan_22' => $request->pertanyaan_22,
+                'pertanyaan_23' => $request->pertanyaan_23,
+                'pertanyaan_24' => $request->pertanyaan_24,
+                'pertanyaan_25' => $request->pertanyaan_25,
+                'pertanyaan_26' => $request->pertanyaan_26,
+                'pertanyaan_27' => $request->pertanyaan_27,
+                'pertanyaan_28' => $request->pertanyaan_28,
+                'pertanyaan_29'  => $request->pertanyaan_30
             ]);
             return redirect('/alumni')->with('status' , 'Data berhasil ditambahkan');
        }
@@ -160,7 +192,9 @@ class UserAttributsController extends Controller
     public function deleteUser(Users_Attribut $users_Attribut)
     {
         Storage::delete($users_Attribut->path_foto);
+        $tbl_kusioner = Tbl_kusioner::where('user_id' , $users_Attribut->id)->first();
         $users_Attribut->delete();
+        $tbl_kusioner->delete();
         return redirect('/alumni')->with('status' , 'Data berhasil dihapus');
         //
     }

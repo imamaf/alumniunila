@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tbl_kusioner extends Model
 {
-    protected $fillable = [ 'pertanyaan_1',
+    protected $fillable = ['user_id',
+                            'pertanyaan_1',
                             'pertanyaan_2',
                             'pertanyaan_3',
                             'pertanyaan_4',
