@@ -98,10 +98,7 @@ Alumni
  @include('layouts.alert-modal')
 <!-- end alert -->
 <!-- Modal Tambah -->
-<form id="regForm" action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
-@csrf
-@method('put')
-<div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -515,20 +512,17 @@ $(document).on('click', '.submit_step', function(data) {
 
     });
     </script>
-    <!-- <script type="text/javascript">
-
+    <script type="text/javascript">
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-36251023-1']);
     _gaq.push(['_setDomainName', 'jqueryscript.net']);
     _gaq.push(['_trackPageview']);
-
     (function() {
         var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
-    </script> -->
+    </script>
 
 </section>
 @endsection
@@ -590,7 +584,6 @@ $(document).ready(function(){
 			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
 		input.trigger('fileselect', [label]);
 		});
-
 		$('.btn-file :file').on('fileselect', function(event, label) {
 		    
 		    var input = $(this).parents('.input-group').find(':text'),
@@ -614,7 +607,6 @@ $(document).ready(function(){
 		        reader.readAsDataURL(input.files[0]);
 		    }
 		}
-
 		$("#imgInp2").change(function(){
 		    readURL(this);
 		}); 
