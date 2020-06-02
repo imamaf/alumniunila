@@ -23,7 +23,7 @@ Alumni
                    @if ($users_attribut === null)
  
                     <div class="tambah" style="margin-left: auto;">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Tambah Data Alumni </button>
+                        <button class="btn btn-primary open_modal_add" data-toggle="modal" data-target="#ModalAddAlumni">Tambah Data Alumni </button>
                     </div>
                     @endif
                 </div>
@@ -98,6 +98,9 @@ Alumni
  @include('layouts.alert-modal')
 <!-- end alert -->
 <!-- Modal Tambah -->
+<form id="regForm" action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
+@csrf
+@method('put')
 <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -107,9 +110,6 @@ Alumni
             </div>
             <div class="modal-body">
                 <div class="row hide" data-step="1" data-title="Input Data Alumni">
-                    <form action="{{url('/add-alumni')}}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    @method('put')
                     <div class="form-group">
                         <label>Upload Image</label>
                         <div class="input-group">
@@ -296,11 +296,12 @@ Alumni
             <div class="modal-footer">
                 <button type="button" class="btn btn-default js-btn-step pull-left" data-orientation="cancel" data-dismiss="modal"></button>
                 <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous"></button>
-                <button type="button" class="btn btn-success js-btn-step" data-orientation="next"></button>
+                <button type="button" id="nexBtn" class="btn btn-success js-btn-step submit_step" data-orientation="next"></button>
             </div>
             </div>
         </div>
     </div>
+    </form>
 <!-- Modall Update -->
     <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -496,9 +497,25 @@ Alumni
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../assets/js/modal-steps.min.js"></script>
     <script>
-    $('#ModalAddAlumni').modalSteps();
+    // $('#ModalAddAlumni').modalSteps();
+    $('#ModalAddAlumni').modalSteps({
+    btnCancelHtml: "Tutup",
+    btnPreviousHtml: "Kembali",
+    btnNextHtml: "Selanjutnya",
+    btnLastStepHtml : "Simpan",
+    disableNextButton: false,
+    completeCallback: function() {},
+    callbacks: {},
+    getTitleAndStep: function() {}
+});
+$(document).on('click', '.submit_step', function(data) {
+    console.log('dataaa' , data);
+    // console.log('testttt ' , document.getElementById("nextBtn").innerHTML = "none");
+    console.log('aaa ');
+
+    });
     </script>
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
 
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-36251023-1']);
@@ -511,7 +528,7 @@ Alumni
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
 
-    </script>
+    </script> -->
 
 </section>
 @endsection
