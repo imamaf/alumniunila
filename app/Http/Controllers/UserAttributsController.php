@@ -79,6 +79,7 @@ class UserAttributsController extends Controller
             ->update([
                 'name' => $request->nama,
             ]);
+            dd($request);
             Users_Attribut::create([
                 'id' => $id, 
                 'nama' => $request->nama,

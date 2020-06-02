@@ -23,7 +23,7 @@ Alumni
                    @if ($users_attribut === null)
  
                     <div class="tambah" style="margin-left: auto;">
-                        <button class="btn btn-primary open_modal_add" data-toggle="modal" data-target="#ModalAddAlumni">Tambah Data Alumni </button>
+                        <button class="btn btn-primary open_modal_add" data-toggle="modal" data-target="#myModal1">Tambah Data Alumni </button>
                     </div>
                     @endif
                 </div>
@@ -97,17 +97,26 @@ Alumni
 @endsection
  @include('layouts.alert-modal')
 <!-- end alert -->
-<!-- Modal Tambah -->
-    <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="js-title-step" style="margin-top: 0; font-size: 18px;"></h4>
-            </div>
-            <div class="modal-body">
-                <div class="row hide" data-step="1" data-title="Input Data Alumni">
-                    <div class="form-group">
+
+<!-- MODAL TAMBAH  -->
+<form id="actionTambah" action="" method="POST" enctype="multipart/form-data">
+@csrf
+@method('put')
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Biodata Alumni</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         </div>
+         <div class="modal-body">
+               <fieldset style="display: block;">
+                  <div class="form-top">
+                     <div class="form-top-left">
+                        <h3>Step 1 / 2</h3>
+                        <p>Lengkapi data berikut</p>
+                     </div>
+                     <div class="form-group">
                         <label>Upload Image</label>
                         <div class="input-group">
                             <span class="input-group-btn">
@@ -182,20 +191,43 @@ Alumni
                             });  
                         </script>
                     </div>
-                </div>
-                <div class="row hide" data-step="2" data-title="Kuisioner Alumni Universitas Lampung">
-                    <div class="jumbotron" style="padding: 10px">
+                  </div>
+               </fieldset>
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+             <button type="button" class="btn btn-next">Selanjutnya</button>
+         </div>
+      </div>
+   </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <h4 class="modal-title" id="myModalLabel">Form Kusioner</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+         </div>
+         <div class="modal-body">
+                  <div class="form-top">
+                     <div class="form-top-left">
+                        <h3>Step 2 / 2</h3>
+                        <p>Foto Gallery:</p>
+                     </div>
+                  </div>         
+                  <div class="jumbotron" style="padding: 10px">
                         <ol>
                             <li>Sebutkan sumber dana dalam pembiayaan kuliah?
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <input class="form-check-input" type="radio" name="abc" id="aaa" value="#">
                                     <label class="form-check-label">Biaya sendiri / keluarga</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <input class="form-check-input" type="radio" name="abc" id="cc" value="#">
                                     <label class="form-check-label">Beasiswa adik</label>
                                 </div>
-                                <div class="form-check">
+                                <!-- <div class="form-check">
                                     <input class="form-check-input" type="radio" name="#" id="#" value="#">
                                     <label class="form-check-label">Beasiswa bidikmisi</label>
                                 </div>
@@ -210,29 +242,29 @@ Alumni
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="#" id="#" value="#">
                                     <label class="form-check-label">Beasiswa perusahaan / swasta</label>
-                                </div>
+                                </div> -->
                             </li>
                             <li>Kapan anda mulai mencari pekerjaan?</li>
                             <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <input class="form-check-input" type="radio" name="dd" id="1" value="#">
                                     <label class="form-check-label">Sebelum Wisuda</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <input class="form-check-input" type="radio" name="dd" id="2" value="#">
                                     <label class="form-check-label">Sesudah Wisuda</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <input class="form-check-input" type="radio" name="dd" id="3" value="#">
                                     <label class="form-check-label">Saya tidak mencari pekerjaan</label>
                                 </div>
                                
                             <li>Bagaimana anda mencari pekerjaan tersebut</li>
                             <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <input class="form-check-input" type="radio" name="#" id="a" value="#">
                                     <label class="form-check-label">Membangun Bisnis sendiri</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="#" id="#" value="#">
+                                    <input class="form-check-input" type="radio" name="#" id="b" value="#">
                                     <label class="form-check-label">Melalui iklan koran/majalah</label>
                                 </div>
                                 <div class="form-check">
@@ -285,20 +317,18 @@ Alumni
                             <input type="text" class="form-control" id="tempat_bekerja" placeholder="Silahkan diisi" name="tempat_bekerja" value="">
                         </ol>
                     </div>
+                </div>               
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
+                    <button type="button" class="btn btn-previous btn-prev">Kembali</button>
+                    <button type="button" class="btn btn-submit-simpan">Simpan</button>
                 </div>
-                <div class="row hide" data-step="3" data-title="Kuisioner Alumni Universitas Lampung">
-                    <div class="jumbotron">Kuisioner Alumni Universitas Lampung</div>
-                </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default js-btn-step pull-left" data-orientation="cancel" data-dismiss="modal"></button>
-                <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous"></button>
-                <button type="button" id="nexBtn" class="btn btn-success js-btn-step submit_step" data-orientation="next"></button>
-            </div>
-            </div>
-        </div>
-    </div>
-    </form>
+         </div>
+      </div>
+   </div>
+</div>
+</form>
 <!-- Modall Update -->
     <div class="modal fade" id="modalEdit" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -488,41 +518,12 @@ Alumni
             </div>
         </div>
     </div>
-    
- 
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="../assets/js/modal-steps.min.js"></script>
-    <script>
-    // $('#ModalAddAlumni').modalSteps();
-    $('#ModalAddAlumni').modalSteps({
-    btnCancelHtml: "Tutup",
-    btnPreviousHtml: "Kembali",
-    btnNextHtml: "Selanjutnya",
-    btnLastStepHtml : "Simpan",
-    disableNextButton: false,
-    completeCallback: function() {},
-    callbacks: {},
-    getTitleAndStep: function() {}
-});
-$(document).on('click', '.submit_step', function(data) {
-    console.log('dataaa' , data);
-    // console.log('testttt ' , document.getElementById("nextBtn").innerHTML = "none");
-    console.log('aaa ');
 
-    });
-    </script>
-    <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-36251023-1']);
-    _gaq.push(['_setDomainName', 'jqueryscript.net']);
-    _gaq.push(['_trackPageview']);
-    (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-    </script>
+    <style>
+    .modal {
+    overflow-y:auto;
+    }
+    </style>
 
 </section>
 @endsection
@@ -609,7 +610,32 @@ $(document).ready(function(){
 		}
 		$("#imgInp2").change(function(){
 		    readURL(this);
-		}); 
+        }); 
+        
+        // js MODAL NEX STEP
+        $("div[id^='myModal']").each(function(){
+  
+            var currentModal = $(this);
+            
+            //click next
+            currentModal.find('.btn-next').click(function(){
+                currentModal.modal('hide');
+                currentModal.closest("div[id^='myModal']").nextAll("div[id^='myModal']").first().modal('show'); 
+            });
+            
+            //click prev
+            currentModal.find('.btn-prev').click(function(){
+                currentModal.modal('hide');
+                currentModal.closest("div[id^='myModal']").prevAll("div[id^='myModal']").first().modal('show'); 
+            });
+        });
+
+        $(document).on('click', '.btn-submit-simpan', function() {
+                    console.log('button submit' );
+                    $('#actionTambah').attr('action' , '/add-alumni');
+                    document.getElementById("actionTambah").submit(); 
+         });
+        
     });
 </script>
 

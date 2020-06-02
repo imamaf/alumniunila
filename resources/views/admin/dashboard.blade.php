@@ -76,7 +76,7 @@ Dashboard
                                 <i class="fas fa-user-graduate"></i>
                             </div>
                             <div class="summary">
-                                <h1>100</h1>
+                                <h1>{{$usrCount}}</h1>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@ Dashboard
                                 <i class="fas fa-university"></i>
                             </div>
                             <div class="summary">
-                                <h1>2</h1>
+                                <h1>{{$jrsanCount}}</h1>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@ Dashboard
                                 <i class="far fa-building"></i>
                             </div>
                             <div class="summary">
-                                <h1>75</h1>
+                                <h1>{{$sdhKrjCount}}</h1>
                             </div>
                         </div>
                     </div>
@@ -125,7 +125,7 @@ Dashboard
                                 <i class="fas fa-user"></i>
                             </div>
                             <div class="summary">
-                                <h1>10</h1>
+                                <h1>{{$blmKrjCount}}</h1>
                             </div>
                         </div>
                     </div>

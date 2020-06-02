@@ -30,7 +30,15 @@ class AdminController extends Controller
     public function index() {
         $id = auth()->user()->id;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
-        return view('admin/dashboard' ,['users_attribut' => $users_attribut] );
+        $userCount = Users_Attribut::get();
+        $jurusanCount = Tbl_jurusan::get();
+        $belumBekerjaCount = Users_Attribut::whereNull('tempat_bekerja')->get();
+        $sudahBekerjaCount = Users_Attribut::whereNotNull('tempat_bekerja')->get();
+        $usrCount = count($userCount);
+        $jrsanCount = count($jurusanCount);
+        $blmKrjCount = count($belumBekerjaCount);
+        $sdhKrjCount = count($sudahBekerjaCount);
+        return view('admin/dashboard' , compact('usrCount' , 'jrsanCount', 'blmKrjCount', 'sdhKrjCount' ),['users_attribut' => $users_attribut] );
     }
 
 
