@@ -821,7 +821,7 @@ Alumni
                             <!-- PERTANYAAN 27 -->
                         <li>Bagaimana anda menggambarkan situasi anda saat  ini?</li>
                         <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pertanyaan_27" id="pertanyaan_27" value="#">
+                                <input class="form-check-input" type="radio" name="pertanyaan_27" id="pertanyaan_27" value="Saya masih beljar/melanjutkan kuliah profesi / pascasarjana">
                                 <label class="form-check-label">Saya masih beljar/melanjutkan kuliah profesi / pascasarjana</label>
                             </div>
                             <div class="form-check">
@@ -901,7 +901,7 @@ Alumni
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <span class="btn btn-default btn-file">
-                                    Browse… <input type="file" id="imgInp2" name="path_foto" class="custom-file-input" required>
+                                    Browse… <input type="file" id="imgInp2" name="path_foto" class="custom-file-input">
                                 </span>
                             </span>
                             <input type="text" class="form-control" readonly>
@@ -1198,7 +1198,7 @@ $(document).ready(function(){
          $(document).on('click', $('#myModal1'), function () {
             // this.myFunction();
             //  $('#btnNext').prop('disabled', true); 
-             $('#nama, #tempat_lahir, #tgl_lahir ,#status ,#no_hp ,#alamat , #th_masuk , #th_lulus , #tempat_bekerja #waktu_lulus_bekerja ,#pertanyaan_1, #pertanyaan_2 , #pertanyaan_4 , #pertanyaan_6 , #pertanyaan_7 , #pertanyaan_9 , #pertanyaan_11 , #pertanyaan_14 , #pertanyaan_15 , #pertanyaan_16 , #pertanyaan_17 , #pertanyaan_29'  ).on('keyup', function () {
+             $('#nama, #tempat_lahir, #tgl_lahir ,#status ,#no_hp ,#alamat , #th_masuk , #th_lulus , #tempat_bekerja, #waktu_lulus_bekerja ,#pertanyaan_1, #pertanyaan_2 , #pertanyaan_4 , #pertanyaan_6 , #pertanyaan_7 , #pertanyaan_9 , #pertanyaan_11 , #pertanyaan_14 , #pertanyaan_15 , #pertanyaan_16 , #pertanyaan_17 , #pertanyaan_29'  ).on('keyup', function () {
                 // $('#btnNext').prop('disabled', true); 
             if ($('#nama').val() == null || $('#nama').val() == '' ) {
                 $('#messageNama').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});

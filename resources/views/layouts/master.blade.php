@@ -41,11 +41,13 @@
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <div class="user-panel">
                     <div class="image">
-                    @if($users_attribut != null)
-                        <img src="<?php echo url('storage', $users_attribut->path_foto) ?>" class="img-circle elevation-2" alt="User Image">
+                    @if($users_attribut != null )
+                        <img src="<?php echo $users_attribut->path_foto == null ? url('img/user-hero.png') :  url('storage', $users_attribut->path_foto) ?>" class="img-circle elevation-2" alt="User Image">
                     @endif
                     @if($users_attribut == null)
-                    <img src="{{url('img/user-hero.png')}}" class="img-circle elevation-2" alt="User Image">
+                        @if($users_attribut == null)
+                        <img src="{{url('img/user-hero.png')}}" class="img-circle elevation-2" alt="User Image">
+                        @endif
                     @endif
                     </div>
                 
@@ -103,10 +105,15 @@
                         </a>
                     </li> -->
                     <li class="active-pro">
-                        <a href="./upgrade.html">
-                            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                            <p>Logout</p>
-                        </a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();" class="dropdown-item">
+                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                        <p>Logout</p>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                        </form>
+                                        
+                     </a>
                     </li>
                 </ul>
             </div>

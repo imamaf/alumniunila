@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Users_Attribut;
 use App\Tbl_jurusan;
+use App\Tbl_kusioner;
 use PDF;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 class AdminController extends Controller
@@ -32,13 +33,15 @@ class AdminController extends Controller
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
         $userCount = Users_Attribut::get();
         $jurusanCount = Tbl_jurusan::get();
-        $belumBekerjaCount = Users_Attribut::whereNull('tempat_bekerja')->get();
-        $sudahBekerjaCount = Users_Attribut::whereNotNull('tempat_bekerja')->get();
+        $belumBekerjaCount = Tbl_kusioner::where('pertanyaan_12' , 'Tidak Bekerja')->get();
+        $sudahBekerjaCount = Tbl_kusioner::where('pertanyaan_12' , 'Bekerja')->get();
+        $lanjutStudyCount = Tbl_kusioner::where('pertanyaan_27' , 'Saya masih beljar/melanjutkan kuliah profesi / pascasarjana')->get();
         $usrCount = count($userCount);
         $jrsanCount = count($jurusanCount);
         $blmKrjCount = count($belumBekerjaCount);
         $sdhKrjCount = count($sudahBekerjaCount);
-        return view('admin/dashboard' , compact('usrCount' , 'jrsanCount', 'blmKrjCount', 'sdhKrjCount' ),['users_attribut' => $users_attribut] );
+        $lnjtStdCount = count($lanjutStudyCount);
+        return view('admin/dashboard' , compact('usrCount' , 'jrsanCount', 'blmKrjCount', 'sdhKrjCount' , 'lnjtStdCount' ),['users_attribut' => $users_attribut] );
     }
 
 
