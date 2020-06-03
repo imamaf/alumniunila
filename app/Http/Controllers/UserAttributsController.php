@@ -46,7 +46,13 @@ class UserAttributsController extends Controller
     { 
         // UPDATE DATA ALUMNI
         $id = auth()->user()->id;
-        $path = $request->file('path_foto')->store('foto_users');
+        $path = null;
+        if(empty($request->path_foto)) {
+            $path;
+        } else {
+            $path = $request->file('path_foto')->store('foto_users');
+        }
+        $checkPath = null;
         $users_attribut = DB::table('users_attributs')->where('id', $id)->first();
         if($users_attribut != null) {
             Storage::delete($users_attribut->path_foto);
