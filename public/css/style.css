@@ -392,3 +392,144 @@ button.close {
 .card-header .card-info .summary h1 {
     margin-top: 20px;
 }
+
+
+
+.jumbotron {
+    background-image: url('../img/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* background-repeat: no-repeat; */
+    height: 690px;
+    margin-top: -70px;
+    border-radius: 0px;
+    position: relative;
+    margin-bottom: 0;
+    padding: 0;
+}
+.jumbotron::before {
+    content: '';
+    display: block;
+    background: linear-gradient(to bottom, #183061 0%,rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    height: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.jumbotron::after {
+    content: '';
+    display: block;
+    background: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.jumbotron .container {
+    z-index: 1;
+    position: relative;
+}
+.navbar {
+    z-index: 1;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: #ffffff;
+}
+.navbar-light .navbar-nav .active>.nav-link {
+    color: #ffffff;
+    font-weight: bold;
+}
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #ffffff;
+    text-shadow: 0 3px 9px #1b55c9;
+}
+.navbar-light .navbar-brand {
+    color: #ffffff;
+    margin-left: 5px;
+    font-weight: bold;
+    cursor: auto;
+}
+.navbar-light .navbar-brand:hover {
+    color: #ffffff;
+}
+
+.main-content {
+    position: absolute;
+    top: 280px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+}
+.main-title {
+    text-align: center;
+    font-family: montserrat;
+}
+.main-title h2{
+    font-size: 35px;
+    color: #ffffff;
+    font-weight: 300;
+}
+/* .main-title h1{
+    font-size: 35px;
+    font-weight: 500;
+    color: #ffffff;
+    
+} */
+
+.main-title .line-1{
+    position: relative;
+    top: 50%;  
+    width: 20em;
+    margin: 0 auto;
+    border-right: 2px solid #fff;
+    font-size: 35px;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+
+.anim-typewriter{
+    animation: typewriter 4s steps(36) 1s 1 normal both,
+            blinkTextCursor 1000ms steps(36) infinite normal;
+}
+@keyframes typewriter{
+    from{width: 0;}
+    to{width: 20em;}
+}
+@keyframes blinkTextCursor{
+    from{border-right-color: #fff;}
+    to{border-right-color: transparent;}
+}
+
+.main-summary {
+    margin-top: 140px;
+}
+.main-summary .summary {
+    color: #fff;
+}
+.main-summary .summary ul {
+    list-style: none outside none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    display: flex;
+}
+.main-summary .summary li {
+    margin: 0 20px;
+    display: block;
+}
+.main-summary .summary hr {
+    border-top: 1px solid;
+    width: 100px;
+    margin-bottom: 5px;
+}
+.main-summary .summary span {
+    font-size: 16px;
+    font-family: montserrat;
+    font-weight: 300;
+}
