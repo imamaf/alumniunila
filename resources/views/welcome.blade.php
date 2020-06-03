@@ -73,7 +73,7 @@
         </div>
     </nav>
 
-    <div class="jumbotron">
+    <div class="jumbotron2">
         <div class="container">
             <div class="main-content">
                 <div class="main-title">

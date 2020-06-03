@@ -395,7 +395,7 @@ button.close {
 
 
 
-.jumbotron {
+.jumbotron2 {
     background-image: url('../img/banner.jpg');
     background-size: cover;
     background-position: center;
@@ -408,7 +408,7 @@ button.close {
     margin-bottom: 0;
     padding: 0;
 }
-.jumbotron::before {
+.jumbotron2::before {
     content: '';
     display: block;
     background: linear-gradient(to bottom, #183061 0%,rgba(255, 255, 255, 0) 100%);
@@ -418,7 +418,7 @@ button.close {
     top: 0;
     left: 0;
 }
-.jumbotron::after {
+.jumbotron2::after {
     content: '';
     display: block;
     background: rgba(0,0,0,0.3);
@@ -428,7 +428,7 @@ button.close {
     top: 0;
     left: 0;
 }
-.jumbotron .container {
+.jumbotron2 .container {
     z-index: 1;
     position: relative;
 }
