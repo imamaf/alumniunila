@@ -18,7 +18,7 @@ class CreateUsersAttributsTable extends Migration
             $table->string('nama', 55);
             $table->string('tempat_lahir', 55);
             $table->string('status', 55);
-            $table->integer('no_hp');
+            $table->string('no_hp' , 15);
             $table->date('tgl_lahir');
             $table->string('alamat', 255);
             $table->string('jurusan_prodi', 55);

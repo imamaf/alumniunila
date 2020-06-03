@@ -23,7 +23,7 @@ Alumni
                    @if ($users_attribut === null)
  
                     <div class="tambah" style="margin-left: auto;">
-                        <button class="btn btn-primary open_modal_add" data-toggle="modal" data-target="#myModal1">Tambah Data Alumni </button>
+                        <button class="btn btn-primary open_modal_add" onclick="myFunction()" data-toggle="modal" data-target="#myModal1">Tambah Data Alumni </button>
                     </div>
                     @endif
                 </div>
@@ -135,10 +135,12 @@ Alumni
                             @endif
                         </div>
                         <div class="form-group">
-                            <input type="text" required class="form-control" id="nama" placeholder="Nama" name="nama" value="{{ Auth::user()->name }}">
+                            <input type="text" class="form-control" id="nama" placeholder="Nama" name="nama" value="{{ Auth::user()->name }}">
+                            <span id='messageNama'></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="tempat_lahir" placeholder="Tempat lahir" name="tempat_lahir" value="<?php echo $users_attribut == null ? "" : $users_attribut->tempat_lahir?>">
+                            <span id='messageTempat_lahir'></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control date" id="tgl_lahir" placeholder="Tanggal lahir" name="tgl_lahir" value="">
@@ -147,12 +149,15 @@ Alumni
                                 format: 'yyyy-mm-dd'
                                 });  
                             </script>
+                            <span id='messageTgl_lahir'></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="alamat" placeholder="Alamat" name="alamat" value="">
+                            <span id='messageAlamat'></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="no_hp" placeholder="No.handphone" name="no_hp" value="">
+                            <span id='messageNo_hp'></span>
                         </div>
                         <div class="form-group">
                             <select class="form-control" placeholder="Jurusan" id="exampleFormControlSelect1" name="jurusan_prodi" value="">
@@ -169,6 +174,7 @@ Alumni
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
                                 });  
                             </script>
+                            <span id='messageTh_masuk'></span>
                         </div>
                         <div class="form-group">                          
                             <input type="text" class="form-control date" id="th_lulus" placeholder="Tahun Lulus" name="th_lulus" value="">
@@ -177,12 +183,15 @@ Alumni
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
                                 });  
                             </script>
+                            <span id='messageTh_lulus'></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="status" placeholder="status" name="status" value="">
+                            <span id='messageStatus'></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control" id="tempat_bekerja" placeholder="tempat bekerja" name="tempat_bekerja" value="">
+                            <span id='messageTempat_bekerja'></span>
                         </div>
                         <div class="form-group">
                             <input type="text" class="form-control date" id="waktu_lulus_bekerja" placeholder="Waktu Lulus Bekerja" name="waktu_lulus_bekerja" value="">
@@ -191,13 +200,14 @@ Alumni
                                 format: "yyyy", viewMode: "years", minViewMode: "years",
                                 });  
                             </script>
+                            <span id='messageWaktu_lulus_bekerja'></span>
                         </div>
                     </div>
                 </fieldset>
             </div>
          <div class="modal-footer">
             <button type="button" class="btn btn-default btn-prev">Kembali</button>
-            <button type="button" class="btn btn-default btn-next">Selanjutnya</button>
+            <button type="button" id="btnNext" class="btn btn-default btn-next">Selanjutnya</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Tutup</button>
          </div>
       </div>
@@ -248,9 +258,11 @@ Alumni
                                 <label class="form-check-label">Beasiswa perusahaan / swasta</label>
                             </div>
                         </li>
+                        <!-- <span id='message_pertanyaan_1'></span> -->
                         <!-- PERTANYAA 2 -->
                         <li>Menurut anda seberepa besar penekanan pada metode pembelajaran dibawah ini dilaksana di program studi anda?</li>
                         <input type="text" class="form-control" id="pertanyaan_2" placeholder="Silahkan diisi" name="pertanyaan_2" value="">
+                        <span id='message_pertanyaan_2'></span>
                         <!-- PERTANYAA 3 -->
                         <li>Kapan anda mulai mencari pekerjaan?</li>
                         <div class="form-check">
@@ -267,12 +279,8 @@ Alumni
                             </div>
                         <!-- PERTANYAA 4 -->  
                         <li>Berapa Lama sebelum wisuda?</li>
-                        <input type="text" class="form-control date" id="pertanyaan_4" placeholder="Waktu Lulus Bekerja" name="pertanyaan_4" value="">
-                            <script type="text/javascript">
-                                $('.date').datepicker({  
-                                format: "yyyy", viewMode: "years", minViewMode: "years",
-                                });  
-                            </script>
+                        <input type="text" class="form-control date" id="pertanyaan_4" placeholder="Silahkan diisi" name="pertanyaan_4" value="">
+                        <span id='message_pertanyaan_4'></span>
                         <!-- PERTANYAA 5 -->
                         <li>Bagaimana anda mencari pekerjaan tersebut</li>
                         <div class="form-check">
@@ -334,25 +342,28 @@ Alumni
                             <!-- PERTANYAAN 6 -->
                         <li>Berapa perusahaan instansi , intitusi , yang sudah anda lamar (termasuk lewat surat atau email) Sebelum anda bekerja</li>
                             <input type="text" class="form-control" id="pertanyaan_6" placeholder="Silahkan diisi" name="pertanyaan_6" value="">
+                            <span id='message_pertanyaan_6'></span>
                             <!-- PERTANYAAN 7 -->
                         <li>Berapa banyak perusahaan, instansi, instusi yang merespon lamaran anda?</li>
                             <input type="text" class="form-control" id="pertanyaan_7" placeholder="Silahkan diisi" name="pertanyaan_7" value="">
+                            <span id='message_pertanyaan_7'></span>
                             <!-- PERTANYAAN 8 -->
                             <!-- PERTANYAAN 9 -->
                         <li>Berapa banyak perusahaan, instansi, instusi yang mengundang anda untuk wawancara?</li>
-                        <input type="text" class="form-control" id="pertanyaan_8" placeholder="Silahkan diisi" name="pertanyaan_8" value="">
+                        <input type="text" class="form-control" id="pertanyaan_9" placeholder="Silahkan diisi" name="pertanyaan_9" value="">
+                        <span id='message_pertanyaan_9'></span>
                         <!-- PERTANYAAN 10 -->
                         <li>Kapan anda memperoleh pekerjaan pertama</li>
                         <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pertanyaan_9" id="pertanyaan_9" value="Sebelum Wisuda">
+                                <input class="form-check-input" type="radio" name="pertanyaan_10" id="pertanyaan_10" value="Sebelum Wisuda">
                                 <label class="form-check-label">Sebelum Wisuda</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pertanyaan_9" id="pertanyaan_9" value="Sesudah Wisuda">
+                                <input class="form-check-input" type="radio" name="pertanyaan_10" id="pertanyaan_10" value="Sesudah Wisuda">
                                 <label class="form-check-label">Sesudah Wisuda</label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="pertanyaan_5" id="pertanyaan_9" value="Saya tidak mencari pekerjaan">
+                                <input class="form-check-input" type="radio" name="pertanyaan_10" id="pertanyaan_10" value="Saya tidak mencari pekerjaan">
                                 <label class="form-check-label">Saya tidak mencari pekerjaan</label>
                             </div>
                     
@@ -387,6 +398,7 @@ Alumni
                     <!-- PERTANYAA 11 -->
                         <li>Berapa bulan sebelum/sesudah wisuda?</li>
                         <input type="text" class="form-control" id="pertanyaan_11" placeholder="Silahkan diisi" name="pertanyaan_11" value="">
+                        <span id='message_pertanyaan_11'></span>
                         <!-- PERTANYAA 12 -->
                         <li>Apakah saat ini anda bekerja/berwirausaha?</li>
                         <div class="form-check">
@@ -422,15 +434,19 @@ Alumni
                         <!-- PERTANYAA 14 -->  
                         <li>Nama perusahaan? (mohon disi jika bekerja)</li>
                         <input type="text" class="form-control" id="pertanyaan_14" placeholder="Silahkan diisi" name="pertanyaan_14" value="">
+                        <span id='message_pertanyaan_14'></span>
                         <!-- PERTANYAA 15 -->
                         <li>Nama antasan langsung?</li>
                         <input type="text" class="form-control" id="pertanyaan_15" placeholder="Silahkan diisi" name="pertanyaan_15" value="">
+                        <span id='message_pertanyaan_15'></span>
                             <!-- PERTANYAAN 16 -->
                         <li>Nomor WA atasan langsung?</li>
                             <input type="text" class="form-control" id="pertanyaan_16" placeholder="Silahkan diisi" name="pertanyaan_16" value="">
+                        <span id='message_pertanyaan_16'></span>
                             <!-- PERTANYAAN 17 -->
                         <li>Email atasan langsung?</li>
                         <input type="text" class="form-control" id="pertanyaan_17" placeholder="Silahkan diisi" name="pertanyaan_17" value="">
+                        <span id='message_pertanyaan_17'></span>
                         <!-- PERTANYAAN 18 -->
                         <li>Perusahaan tempat anda bekerja bergerak dibidang apa?</li>
                         <div class="form-check">
@@ -523,7 +539,22 @@ Alumni
                             </div>
                          <!-- PERTANYAAN 19 -->
                          <li>Kira-kira berapa pendapatan anda disetiap bulannya dari pekerjaan utama?</li>
-                        <input type="text" class="form-control" id="pertanyaan_19" placeholder="Silahkan diisi" name="pertanyaan_19" value="">
+                        <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_19" id="pertanyaan_19" value="Rp 0 - Rp 1.000.0000">
+                                <label class="form-check-label">Rp 0 - Rp 1.000.0000 </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_19" id="pertanyaan_19" value="Rp 1.000.000 - Rp 3.000.0000">
+                                <label class="form-check-label">Rp 1.000.000 - Rp 3.000.0000</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_19" id="pertanyaan_19" value="Rp 3.000.000 - Rp 5000.0000">
+                                <label class="form-check-label">Rp 3.000.000 - Rp 5000.0000</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_19" id="pertanyaan_19" value="Rp 5.000.000 - Rp 10.000.0000">
+                                <label class="form-check-label">Rp 5.000.000 - Rp 10.000.0000</label>
+                            </div>
                          <!-- PERTANYAAN 20 -->
                          <li>Kira-kira berapa pendapatan anda setiap bulannya dari lembur dan tips?</li>
                          <div class="form-check">
@@ -590,7 +621,6 @@ Alumni
                             </div>
                         <!-- PERTANYAA 22 -->
                         <li>Seberapa erat hubungan antara bidang studi dengan pekerjaan anda?</li>
-                        <input type="text" class="form-control" id="tempat_bekerja" placeholder="Silahkan diisi" name="tempat_bekerja" value="">
                         <div class="form-check">
                                 <input class="form-check-input" type="radio" name="pertanyaan_22" id="pertanyaan_22" value="Sangat erat">
                                 <label class="form-check-label">Sangat erat</label>
@@ -679,7 +709,6 @@ Alumni
                                 <input class="form-check-input" type="radio" name="pertanyaan_24" id="pertanyaan_24" value="Pada awal meniti karir saya harus menerima pekerjaan yang tidak berhubungan dengan pendidikan saya">
                                 <label class="form-check-label">Pada awal meniti karir saya harus menerima pekerjaan yang tidak berhubungan dengan pendidikan saya</label>
                             </div>
-                            <input type="text" class="form-control" id="pertanyaan_24" placeholder="Lain - lain" name="pertanyaan_24" value="">
                     
                         <!-- PERTANYAA 25 -->
                         <li>Usaha anda saat ini bergerak pada bidang apa?</li>
@@ -772,8 +801,23 @@ Alumni
                                     <label class="form-check-label">lain - lain</label>
                                 </div>
                             <!-- PERTANYAAN 26 -->
-                        <li>Kira-kira pendapatan anda setiap bulannya?</li>
-                            <input type="text" class="form-control" id="pertanyaan_26" placeholder="Silahkan diisi" name="pertanyaan_25" value="">
+                        <li>Kira-kira pendapatan usaha anda setiap bulannya?</li>
+                        <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_26" id="pertanyaan_26" value="Rp 0 - Rp 1.000.0000">
+                                <label class="form-check-label">Rp 0 - Rp 1.000.0000 </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_26" id="pertanyaan_26" value="Rp 1.000.000 - Rp 3.000.0000">
+                                <label class="form-check-label">Rp 1.000.000 - Rp 3.000.0000</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_26" id="pertanyaan_26" value="Rp 3.000.000 - Rp 5000.0000">
+                                <label class="form-check-label">Rp 3.000.000 - Rp 5000.0000</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="pertanyaan_26" id="pertanyaan_26" value="Rp 5.000.000 - Rp 10.000.0000">
+                                <label class="form-check-label">Rp 5.000.000 - Rp 10.000.0000</label>
+                            </div>
                             <!-- PERTANYAAN 27 -->
                         <li>Bagaimana anda menggambarkan situasi anda saat  ini?</li>
                         <div class="form-check">
@@ -823,6 +867,7 @@ Alumni
                             <!-- PERTANYAAN 29 -->
                         <li>Pada saat lulus, pada tingkat mana kompetensi dibawah ini anda kuasai? Pada saat ini, pada tingkat mana kompetensi dibawah ini diperlukan dalam pekerjaan?</li>
                         <input type="text" class="form-control" id="pertanyaan_29" placeholder="Silahkan diisi" name="pertanyaan_29" value="">
+                        <span id='message_pertanyaan_29'></span>
                 </div>
             </div> 
          <div class="modal-footer">
@@ -1031,6 +1076,7 @@ Alumni
     .modal {
     overflow-y:auto;
     }
+    
     </style>
 
 </section>
@@ -1143,7 +1189,131 @@ $(document).ready(function(){
                     $('#actionTambah').attr('action' , '/add-alumni');
                     document.getElementById("actionTambah").submit(); 
          });
-        
+
+         function myFunction() {
+             console.log('aaaa');
+
+		}
+
+         $(document).on('click', $('#myModal1'), function () {
+            // this.myFunction();
+            //  $('#btnNext').prop('disabled', true); 
+             $('#nama, #tempat_lahir, #tgl_lahir ,#status ,#no_hp ,#alamat , #th_masuk , #th_lulus , #tempat_bekerja #waktu_lulus_bekerja ,#pertanyaan_1, #pertanyaan_2 , #pertanyaan_4 , #pertanyaan_6 , #pertanyaan_7 , #pertanyaan_9 , #pertanyaan_11 , #pertanyaan_14 , #pertanyaan_15 , #pertanyaan_16 , #pertanyaan_17 , #pertanyaan_29'  ).on('keyup', function () {
+                // $('#btnNext').prop('disabled', true); 
+            if ($('#nama').val() == null || $('#nama').val() == '' ) {
+                $('#messageNama').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageNama').css('display', 'none');
+            }
+            if ($('#tempat_lahir').val() == null || $('#tempat_lahir').val() == '' ) {
+                $('#messageTempat_lahir').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageTempat_lahir').css('display', 'none');
+            }
+            if ($('#tgl_lahir').val() == null || $('#tgl_lahir').val() == '' ) {
+                $('#messageTgl_lahir').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageTgl_lahir').css('display', 'none');
+            }
+            if ($('#status').val() == null || $('#status').val() == '' ) {
+                $('#messageStatus').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageStatus').css('display', 'none');
+            }
+            if ($('#no_hp').val() == null || $('#no_hp').val() == '' ) {
+                $('#messageNo_hp').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageNo_hp').css('display', 'none');
+            }
+            if ($('#alamat').val() == null || $('#alamat').val() == '' ) {
+                $('#messageAlamat').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageAlamat').css('display', 'none');
+            }
+            if ($('#th_masuk').val() == null || $('#th_masuk').val() == '' ) {
+                $('#messageTh_masuk').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageTh_masuk').css('display', 'none');
+            }
+            if ($('#th_lulus').val() == null || $('#th_lulus').val() == '' ) {
+                $('#messageTh_lulus').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageTh_lulus').css('display', 'none');
+            }
+            if ($('#tempat_bekerja').val() == null || $('#tempat_bekerja').val() == '' ) {
+                $('#messageTempat_bekerja').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageTempat_bekerja').css('display', 'none');
+            }
+            if ($('#waktu_lulus_bekerja').val() == null || $('#waktu_lulus_bekerja').val() == '' ) {
+                $('#messageWaktu_lulus_bekerja').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#messageWaktu_lulus_bekerja').css('display', 'none');
+            }
+            // VALIDADATE FORM KUSIONER
+            // if ($('#pertanyaan_1').val() == null || $('#pertanyaan_1').val() == '' ) {
+            //     $('#message_pertanyaan_1').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            // } else {
+            //     $('#message_pertanyaan_1').css('display', 'none');
+            // }
+            if ($('#pertanyaan_2').val() == null || $('#pertanyaan_2').val() == '' ) {
+                $('#message_pertanyaan_2').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_2').css('display', 'none');
+            }
+            if ($('#pertanyaan_4').val() == null || $('#pertanyaan_4').val() == '' ) {
+                $('#message_pertanyaan_4').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_4').css('display', 'none');
+            }
+            if ($('#pertanyaan_6').val() == null || $('#pertanyaan_6').val() == '' ) {
+                $('#message_pertanyaan_6').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_6').css('display', 'none');
+            }
+            if ($('#pertanyaan_7').val() == null || $('#pertanyaan_7').val() == '' ) {
+                $('#message_pertanyaan_7').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_7').css('display', 'none');
+            }
+            if ($('#pertanyaan_9').val() == null || $('#pertanyaan_9').val() == '' ) {
+                $('#message_pertanyaan_9').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_9').css('display', 'none');
+            }
+            if ($('#pertanyaan_11').val() == null || $('#pertanyaan_11').val() == '' ) {
+                $('#message_pertanyaan_11').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_11').css('display', 'none');
+            }
+            if ($('#pertanyaan_14').val() == null || $('#pertanyaan_14').val() == '' ) {
+                $('#message_pertanyaan_14').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_14').css('display', 'none');
+            }
+            if ($('#pertanyaan_15').val() == null || $('#pertanyaan_15').val() == '' ) {
+                $('#message_pertanyaan_15').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_15').css('display', 'none');
+            }
+            if ($('#pertanyaan_16').val() == null || $('#pertanyaan_16').val() == '' ) {
+                $('#message_pertanyaan_16').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_16').css('display', 'none');
+            }
+            if ($('#pertanyaan_17').val() == null || $('#pertanyaan_17').val() == '' ) {
+                $('#message_pertanyaan_17').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_17').css('display', 'none');
+            }
+            if ($('#pertanyaan_29').val() == null || $('#pertanyaan_29').val() == '' ) {
+                $('#message_pertanyaan_29').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            } else {
+                $('#message_pertanyaan_29').css('display', 'none');
+            }
+        });
+    });
+                
     });
 </script>
 
