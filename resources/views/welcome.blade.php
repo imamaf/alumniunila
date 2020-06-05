@@ -90,7 +90,7 @@
                                 <span>Alumni</span>
                             </li>
                             <li>
-                                <h1>{{$lnjtStdCount}}</h1>
+                                <h1>{{$jrsanCount}}</h1>
                                 <hr>
                                 <span>Jurusan/Prodi</span>
                             </li>

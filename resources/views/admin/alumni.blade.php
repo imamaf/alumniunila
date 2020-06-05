@@ -1093,7 +1093,7 @@ $(document).ready(function(){
                 //success data
                 console.log('data : ', data);
                 console.log('data img-upload2 : ', $('#img-upload2'));
-                $('#action').attr('action' , '/update-data-jurusan/' + tour_id);
+                // $('#action').attr('actionUpdate' , '/update-data-jurusan/' + tour_id);
                 $('#alamat_update').val(data.alamat);
                 document.getElementById("img-upload2").src="storage/" + data.path_foto;
                 $('#jenis_kelamin_update').val(data.jenis_kelamin);
