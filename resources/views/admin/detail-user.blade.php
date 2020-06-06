@@ -5,36 +5,52 @@
     Alumni | Alumni Unila
 @endsection
 
+@section('cari')
+Detail
+@endsection
+
 @section('header')
-Detail Data
+Detail
 @endsection
 
 @section('content')
+<section>
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                     <div class="card-header" style="display: flex;">  
-                    <h5 class="card-title">Detail Profil</h5> 
+                    <h5 class="card-title">Detail Profil</h5>
                   <!-- STATUS MESSAGE -->
-                    @if (session('status'))
-                    <p style="color : green">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
                         {{ session('status') }}
-                    </p>
-                    @endif
-                    @if($users_attribut == null)
-                    <p style="color: red;">Infomarsi : Anda belum menambahkan data pribadi anda </p>
-                    <div class="tambah" style="margin-left: auto;">
-                    <button class="btn btn-primary"><a href="{{url('/dashboard')}}" style="color:white;">Kembali </a></button>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Tambah </button>
                     </div>
                     @endif
+                    @if (session('error') || !empty($notFound) )
+                    <section>
+                    <div class="alert alert-danger" role="alert">
+                       <?php echo session('error') != null ?session('error') : "Data tidak ditemukan" ?>
+                    </div>
+                    </section>
+                    @endif    
+                        @if($users_attribut == null && empty($notFound))
+                        <div>
+                        <p style="color: red;"> <br> <br><br>Infomarsi : Anda belum menambahkan data pribadi anda </p>
+                        <a href = "{{url('/alumni')}}"> <p style="color: black;">Klik link ini untuk menambah data alumni </p> <a>
+                    </div>
+                    
+                        <div class="tambah" style="margin-left: auto;">
+                        <button class="btn btn-primary"><a href="{{url('/dashboard')}}" style="color:white;">Kembali </a></button>
+                        <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Tambah </button> -->
+                        </div>
+                        @endif
                     @if($users_attribut != null)    
                         <div class="tambah" style="margin-left: auto;">
                             <button class="btn btn-primary">
                             <a href="{{url('/laporan-pdf')}}" style="color:white;">Cetak </a>
                              </button>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Edit Profil </button>
-                            <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Edit Password </button>
+                            <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#modalChangePw">Edit Password </button> -->
                         </div>
                     </div>      
                     <form>
@@ -110,8 +126,9 @@ Detail Data
             </div>
         </div>
     </div>
-    <section>
+</section>
 <!-- Modal -->
+<section>
 <div class="modal fade" id="ModalAddAlumni" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -130,7 +147,7 @@ Detail Data
                         <div class="input-group">
                             <span class="input-group-btn">
                                 <span class="btn btn-default btn-file">
-                                    Browse… <input type="file" id="imgInp" name="path_foto" class="custom-file-input" required>
+                                    Browse… <input type="file" id="imgInp" name="path_foto" class="custom-file-input">
                                 </span>
                             </span>
                             <input type="text" class="form-control" readonly>
@@ -199,8 +216,8 @@ Detail Data
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
                 </div>
                 </form>
             </div>

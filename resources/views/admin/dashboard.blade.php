@@ -141,7 +141,7 @@ Dashboard
                                 <i class="fas fa-book"></i>
                             </div>
                             <div class="summary">
-                                <h1>15</h1>
+                                <h1>{{$lnjtStdCount}}</h1>
                             </div>
                         </div>
                     </div>

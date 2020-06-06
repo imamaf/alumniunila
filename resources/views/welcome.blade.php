@@ -85,27 +85,27 @@
                     <div class="summary d-flex justify-content-center">
                         <ul>
                             <li>
-                                <h1>120</h1>
+                                <h1>{{$usrCount}}</h1>
                                 <hr>
                                 <span>Alumni</span>
                             </li>
                             <li>
-                                <h1>340</h1>
+                                <h1>{{$jrsanCount}}</h1>
                                 <hr>
                                 <span>Jurusan/Prodi</span>
                             </li>
                             <li>
-                                <h1>232</h1>
+                                <h1>{{$sdhKrjCount}}</h1>
                                 <hr>
                                 <span>Bekerja</span>
                             </li>
                             <li>
-                                <h1>142</h1>
+                                <h1>{{$blmKrjCount}}</h1>
                                 <hr>
                                 <span>Belum Bekerja</span>
                             </li>
                             <li>
-                                <h1>428</h1>
+                                <h1>{{$lnjtStdCount}}</h1>
                                 <hr>
                                 <span>Lanjut Studi</span>
                             </li>

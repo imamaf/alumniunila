@@ -41,11 +41,13 @@
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <div class="user-panel">
                     <div class="image">
-                    @if($users_attribut != null)
-                        <img src="<?php echo url('storage', $users_attribut->path_foto) ?>" class="img-circle elevation-2" alt="User Image">
+                    @if($users_attribut != null )
+                        <img src="<?php echo $users_attribut->path_foto == null ? url('img/user-hero.png') :  url('storage', $users_attribut->path_foto) ?>" class="img-circle elevation-2" alt="User Image">
                     @endif
                     @if($users_attribut == null)
-                    <img src="{{url('img/user-hero.png')}}" class="img-circle elevation-2" alt="User Image">
+                        @if($users_attribut == null)
+                        <img src="{{url('img/user-hero.png')}}" class="img-circle elevation-2" alt="User Image">
+                        @endif
                     @endif
                     </div>
                 
@@ -103,10 +105,15 @@
                         </a>
                     </li> -->
                     <li class="active-pro">
-                        <a href="./upgrade.html">
-                            <i class="now-ui-icons arrows-1_cloud-download-93"></i>
-                            <p>Logout</p>
-                        </a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();" class="dropdown-item">
+                        <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                        <p>Logout</p>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                        </form>
+                                        
+                     </a>
                     </li>
                 </ul>
             </div>
@@ -163,7 +170,7 @@
                                         document.getElementById('logout-form').submit();" class="dropdown-item">
                                         Logout
                                     </a>
-                                    <a href="" class="dropdown-item" data-toggle="modal" data-target="#exampleModal" onclick="validate()">
+                                    <a href="" class="dropdown-item" data-toggle="modal" data-target="#modalChangePw" onclick="validate()">
                                         Ganti Password
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -187,7 +194,7 @@
             </nav>
             <!-- End Navbar -->
              <!-- MODAL GANTI PASSWORD -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="modalChangePw" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
         <div class="modal-header">
@@ -277,8 +284,9 @@
     $('#new_password, #password_confirm').on('keyup', function () {
     if ($('#new_password').val() == $('#password_confirm').val()) {
         $('#message').html('Matching').css('color', 'green');
-    } else 
+         } else {
         $('#message').html('Not Matching').css('color', 'red');
+         }
     });
     </script>
     <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
