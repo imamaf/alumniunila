@@ -93,6 +93,12 @@ class AdminController extends Controller
         return view('user-detail-PDF' , ['users_attribut' => $users_attribut]);
     }
 
+    function pdf(){
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($this->viewPDF());
+        return$pdf->stream();
+    }
+
     public function search(Request $request , string $pathSearch){
         $cari = $request->cari;
         $id = auth()->user()->id;

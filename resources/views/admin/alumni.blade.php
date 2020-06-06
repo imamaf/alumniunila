@@ -279,7 +279,7 @@ Alumni
                             </div>
                         <!-- PERTANYAA 4 -->  
                         <li>Berapa Lama sebelum wisuda?</li>
-                        <input type="text" class="form-control date" id="pertanyaan_4" placeholder="Silahkan diisi" name="pertanyaan_4" value="">
+                        <input type="text" class="form-control" id="pertanyaan_4" placeholder="Silahkan diisi" name="pertanyaan_4" value="">
                         <span id='message_pertanyaan_4'></span>
                         <!-- PERTANYAA 5 -->
                         <li>Bagaimana anda mencari pekerjaan tersebut</li>
@@ -1221,7 +1221,7 @@ $(document).ready(function(){
                 $('#messageStatus').css('display', 'none');
             }
             if ($('#no_hp').val() == null || $('#no_hp').val() == '' ) {
-                $('#messageNo_hp').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+                $('#messageNo_hp').html('Kolom ini wajib diisi (menggunakan numeric)').css({"color":"red" , "display" : "block"});
             } else {
                 $('#messageNo_hp').css('display', 'none');
             }
@@ -1240,11 +1240,11 @@ $(document).ready(function(){
             } else {
                 $('#messageTh_lulus').css('display', 'none');
             }
-            if ($('#tempat_bekerja').val() == null || $('#tempat_bekerja').val() == '' ) {
-                $('#messageTempat_bekerja').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
-            } else {
-                $('#messageTempat_bekerja').css('display', 'none');
-            }
+            // if ($('#tempat_bekerja').val() == null || $('#tempat_bekerja').val() == '' ) {
+            //     $('#messageTempat_bekerja').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+            // } else {
+            //     $('#messageTempat_bekerja').css('display', 'none');
+            // }
             if ($('#waktu_lulus_bekerja').val() == null || $('#waktu_lulus_bekerja').val() == '' ) {
                 $('#messageWaktu_lulus_bekerja').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
             } else {
@@ -1297,7 +1297,7 @@ $(document).ready(function(){
                 $('#message_pertanyaan_15').css('display', 'none');
             }
             if ($('#pertanyaan_16').val() == null || $('#pertanyaan_16').val() == '' ) {
-                $('#message_pertanyaan_16').html('Kolom ini wajib diisi').css({"color":"red" , "display" : "block"});
+                $('#message_pertanyaan_16').html('Kolom ini wajib diisi (menggunakan numeric)').css({"color":"red" , "display" : "block"});
             } else {
                 $('#message_pertanyaan_16').css('display', 'none');
             }

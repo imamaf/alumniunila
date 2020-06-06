@@ -55,13 +55,14 @@ Dashboard
             <div class="col-lg-4">
                 <div class="card card-chart">
                     <div class="card-header">
-                        <h4 class="card-title">Dashboard</h4>
+                    <a href="{{url('/')}}">
+                        <h4 class="card-title" style="color : black">Home</h4>
                         <hr>
                         <div class="card-info">
                             <div class="kotak">
                                 <i class="fas fa-home"></i>
                             </div>
-                            
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Laravel</title>
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <title>Sistem Informasi Alumni | Universitas Lampung</title>
 
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -57,7 +58,20 @@
                 <ul class="navbar-nav ml-auto">
                     @auth
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ url('/home') }}">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#">Welcom {{ Auth::user()->name }} <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ url('/dashboard') }}">Admin <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();" class="dropdown-item">
+                           <i class="now-ui-icons arrows-1_cloud-download-93"></i>
+                            <p>Logout</p>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                             </form>              
+                            </a>
                         </li>
                     @else
                         <li class="nav-item">
