@@ -1104,9 +1104,9 @@ $(document).ready(function(){
                 $('#tempat_bekerja_update').val(data.tempat_bekerja);
                 $('#tempat_lahir_update').val(data.tempat_lahir);
                 $('#tgl_lahir_update').val(data.tgl_lahir);
-                $('#th_lulus_update').val(data.th_lulus.substring(0,4));
-                $('#th_masuk_update').val(data.th_masuk.substring(0,4));
-                $('#waktu_lulus_bekerja_update').val(data.waktu_lulus_bekerja.substring(0,4));
+                $('#th_lulus_update').val(data.th_lulus != null ? data.th_lulus.substring(0,4) : data.th_lulus);
+                $('#th_masuk_update').val(data.th_masuk != null ? data.th_masuk.substring(0,4) : data.th_masuk);
+                $('#waktu_lulus_bekerja_update').val(data.waktu_lulus_bekerja != null ?data.waktu_lulus_bekerja.substring(0,4) : data.waktu_lulus_bekerja);
                 $('#btn-save').val("update");
                 $('#modalEdit').modal('show');
             })
@@ -1127,9 +1127,9 @@ $(document).ready(function(){
                 $('#tempat_bekerja_view').val(data.tempat_bekerja);
                 $('#tempat_lahir_view').val(data.tempat_lahir);
                 $('#tgl_lahir_view').val(data.tgl_lahir);
-                $('#th_lulus_view').val(data.th_lulus.substring(0,4));
-                $('#th_masuk_view').val(data.th_masuk.substring(0,4));
-                $('#waktu_lulus_bekerja_view').val(data.waktu_lulus_bekerja.substring(0,4));
+                $('#th_lulus_view').val(data.th_lulus !== null ? data.th_lulus.substring(0,4) : data.th_lulus);
+                $('#th_masuk_view').val(data.th_masuk !== null ? data.th_masuk.substring(0,4) : data.th_masuk);
+                $('#waktu_lulus_bekerja_view').val(data.waktu_lulus_bekerja != null ? data.waktu_lulus_bekerja.substring(0,4) : data.waktu_lulus_bekerja);
                 $('#btn-save').val("update");
                 $('#ModalView').modal('show');
             })

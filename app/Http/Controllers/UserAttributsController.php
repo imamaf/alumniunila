@@ -69,10 +69,10 @@ class UserAttributsController extends Controller
                 'tgl_lahir' => $request->tgl_lahir,
                 'alamat' => $request->alamat,
                 'jurusan_prodi' => $request->jurusan_prodi,
-                'th_masuk' => $request->th_masuk.'-01-01',
-                'th_lulus' => $request->th_lulus.'-01-01',
+                'th_masuk' => $request->th_masuk != null ?  $request->th_masuk.'-01-01' :   $request->th_masuk,
+                'th_lulus' => $request->th_lulus != null ? $request->th_lulus.'-01-01' : $request->th_lulus,
                 'tempat_bekerja' => $request->tempat_bekerja,
-                'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja.'-01-01',
+                'waktu_lulus_bekerja' => $request->waktu_lulus_bekerja != null ? $request->waktu_lulus_bekerja.'-01-01' : $request->waktu_lulus_bekerja,
                 'path_foto' =>$path,
             ]);
             if($request->detailUser == 'detailUser') {
