@@ -95,8 +95,8 @@ class AdminController extends Controller
 
     function pdf(){
         $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->viewPDF());
-        return$pdf->stream();
+        $pdf->loadHTML($this->viewPDF())->setPaper('legal', 'potrait');
+        return $pdf->stream();
     }
 
     public function search(Request $request , string $pathSearch){
