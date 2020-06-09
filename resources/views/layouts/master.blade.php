@@ -41,13 +41,13 @@
             <div class="sidebar-wrapper" id="sidebar-wrapper">
                 <div class="user-panel">
                     <div class="image">
-                    @if($users_attribut != null )
+                    @if(!empty($users_attribut) )
                         <img src="<?php echo empty($users_attribut->path_foto) ? url('img/user-hero.png') :  url('storage', $users_attribut->path_foto) ?>" class="img-circle elevation-2" alt="User Image">
                     @endif
-                    @if($users_attribut == null)
-                        @if($users_attribut == null)
+                    @if(empty($users_attribut))
+                        
                         <img src="{{url('img/user-hero.png')}}" class="img-circle elevation-2" alt="User Image">
-                        @endif
+                        
                     @endif
                     </div>
                 

@@ -11,14 +11,14 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" /> -->
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
     <!-- CSS Files -->
-    <link href="{{  url('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
-    <link href="{{ url('css/cetak.css') }}" rel="stylesheet">
+    <link href="{{  public_path('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{ public_path('css/cetak.css') }}" rel="stylesheet">
 </head>
 <body>
 
     <div class="container">
         <div class="header">
-            <img src="{{url('img/logo-unila.png')}}" alt="Logo">
+            <img src="{{public_path('img/logo-unila.png')}}" alt="Logo">
             <div class="header-title">
                 <h3>Sistem Informasi Alumni</h3>
                 <h5>Universitas Lampung</h5>
@@ -28,7 +28,7 @@
 
         <div class="row">
             <div class="col-md-12 main">
-                <img src="{{url('img/img-cetak.jpg')}}" alt="Logo">
+                <img src="{{public_path('img/img-cetak.jpg')}}" alt="Logo">
                 <h1>{{$users_attribut->nama}}</h1>
             </div>
         </div>
