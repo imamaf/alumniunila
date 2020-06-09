@@ -47,7 +47,7 @@ Detail
                     @if($users_attribut != null)    
                         <div class="tambah" style="margin-left: auto;">
                             <button class="btn btn-primary">
-                            <a href="{{url('/laporan-pdf')}}" style="color:white;">Cetak </a>
+                            <a href="{{url('/PDF')}}" style="color:white;">Cetak </a>
                              </button>
                             <button class="btn btn-primary" data-toggle="modal" data-target="#ModalAddAlumni">Edit Profil </button>
                             <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#modalChangePw">Edit Password </button> -->

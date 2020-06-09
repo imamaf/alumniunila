@@ -59,3 +59,4 @@ Route::get('/laporan-pdf','AdminController@generatePDF');
 Route::get('/cari/{pathSearch}','AdminController@search');
 // view PDF
 Route::get('/viewPDF','AdminController@viewPDF');
+Route::get('/PDF','AdminController@pdf');

@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html>
+<!-- <!DOCTYPE html> -->
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Cetak</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
     <!--     Fonts and icons     -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" /> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"> -->
     <!-- CSS Files -->
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/cetak.css') }}" rel="stylesheet">
+    <link href="{{  url('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{ url('css/cetak.css') }}" rel="stylesheet">
 </head>
 <body>
 
@@ -95,41 +96,5 @@
             </div>
         </div>
     </div>
-
-    <!-- <div class="form-group">
-        <input type="text" class="form-control" id="nama" placeholder="nama" name="nama" value="{{$users_attribut->nama}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="tempat_lahir" placeholder="tempat lahir" name="tempat_Lahir" value="{{$users_attribut->tempat_lahir}}">
-    </div>
-    <div class="form-group"> 
-        <input type="text" class="form-control" id="tgl_lahir" placeholder="tanggal lahir" name="tgl_lahir" value="{{$users_attribut->tgl_lahir}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="alamat" placeholder="alamat" name="alamat" value="{{$users_attribut->alamat}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="no_handphone" placeholder="no.handphone" name="no_hp" value="{{$users_attribut->no_hp}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="jurusan" placeholder="jurusan" name="jurusan_prodi" value="{{$users_attribut->jurusan_prodi}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="tahun_masuk" placeholder="tahun masuk" name="th_masuk" value="{{substr($users_attribut->th_masuk,0,4)}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="tahun_lulus" placeholder="tahun lulus" name="th_lulus" value="{{substr($users_attribut->th_lulus,0,4)}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="status" placeholder="status" name="status" value="{{$users_attribut->status}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="status" placeholder="tempat bekerja" name="tempat_bekerja" value="{{$users_attribut->tempat_bekerja}}">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" id="status" placeholder="waktu lulus kerja" name="waktu_lulus_bekerja" value="{{substr($users_attribut->waktu_lulus_bekerja,0,4)}}">
-    </div>
-</div> -->
-
 </body>
 </html>
