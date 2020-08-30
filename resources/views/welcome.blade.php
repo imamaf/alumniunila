@@ -95,7 +95,14 @@
                     <h2>Sistem Informasi Alumni</h2>
                     <h2>Universitas Lampung</h2>
                 </div>
-                <div class="main-summary">
+                                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                {!! $chart->html() !!}
+                            </div>
+                        </div>
+                    </div>
+                <div class="main-summary" style="margin-top: -10px;">
                     <div class="summary d-flex justify-content-center">
                         <ul>
                             <li>
@@ -129,5 +136,27 @@
             </div>
         </div>
     </div>
+    {!! Charts::scripts() !!}
+{!! $chart->script() !!}
 </body>
 </html>
+
+<style>
+    .highcharts-background{
+        display: none
+    }
+    .highcharts-container  {
+    position: relative;
+    overflow: hidden;
+    width: 600px;
+    height: 300px;
+    text-align: left;
+    line-height: normal;
+    z-index: 0;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    margin-left: 225px;
+    }
+    .highcharts-title {
+        display: none
+    }
+</style>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Users_Attribut;
 use App\Tbl_jurusan;
 use App\Tbl_kusioner;
+use ConsoleTVs\Charts\Facades\Charts;
 
 use Illuminate\Http\Request;
 
@@ -20,7 +21,14 @@ class LandingPageController extends Controller
         $blmKrjCount = count($belumBekerjaCount);
         $sdhKrjCount = count($sudahBekerjaCount);
         $lnjtStdCount = count($lanjutStudyCount);
-        return view('welcome' , compact('usrCount' , 'jrsanCount', 'blmKrjCount', 'sdhKrjCount' , 'lnjtStdCount' ) );
+                $chart = 
+               Charts::create('donut', 'highcharts')
+               ->title('Grafik')
+                ->labels(['Bekerja', 'Belum Bekerja', 'Melanjutkan Study'])
+                ->values([$sdhKrjCount, $blmKrjCount,$lnjtStdCount])
+                ->dimensions(600,300)
+                ->responsive(false);
+        return view('welcome' , compact('usrCount' , 'jrsanCount', 'blmKrjCount', 'sdhKrjCount' , 'lnjtStdCount', 'chart' ) );
     }
     //
 }

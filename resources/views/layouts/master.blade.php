@@ -33,7 +33,7 @@
         <div class="sidebar" data-color="blue"><!--Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"-->
             <div class="logo" style="display: flex">
                 <img src="{{url('img/logo-unila.png')}}" alt="Logo" width="45">
-                <a href="#" class="simple-text logo-normal" style="font-size: 15px">
+                <a href="/" class="simple-text logo-normal" style="font-size: 15px">
                     Universitas Lampung
                 </a>
             </div>
